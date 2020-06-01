@@ -1,0 +1,18 @@
+{
+  "@class": "Person",
+  "@type": "d",
+  "in_AddedBy": [
+    "#65:11"
+  ],
+  "id": "7b9963aa-94f6-4593-812e-49c99aec4411",
+  "created_date": "2020-04-17T14:31:41.366Z",
+  "first_name": "Keith",
+  "last_name": "Strickland",
+  "email": "keithstric@gmail.com",
+  "password": "$2b$13$UBqW9fF3HNOQbmfC/gI1D.J258oqBz8oKxJ83oaPNnOOR6H.b6QOa",
+  "in_ReviewedBy": [
+    "#73:0"
+  ],
+  "@rid": "#29:21",
+  "@version": 47
+}

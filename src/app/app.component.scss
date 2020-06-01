@@ -1,0 +1,17 @@
+@import 'variables';
+
+.site-container {
+  font-size: 14px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100vh;
+  background: #f1f1f1;
+
+  .site-header {
+
+  }
+
+  .site-content {
+    height: 100%;
+    padding: 0 15px;
+  }
+}

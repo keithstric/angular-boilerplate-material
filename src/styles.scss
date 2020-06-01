@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'app/variables';
+
+.flex-column {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex !important;
+  flex-direction: row;
+}
+
+.flex-content-start {
+  justify-content: flex-start;
+}
+
+.flex-content-end {
+  justify-content: flex-end;
+}
+
+.flex-content-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.page-container {
+  padding: 15px;
+}
+
+.spacer {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.dialog-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+a {
+  color: $primary;
+
+  &:hover {
+    cursor: pointer;
+    color: $accent;
+  }
+}
+
+.message-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .message {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
