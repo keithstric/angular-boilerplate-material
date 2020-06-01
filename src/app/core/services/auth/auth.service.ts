@@ -18,10 +18,6 @@ export class AuthService {
     private _error: ErrorService
   ) { }
 
-  subscribeAuthData() {
-    return this.authData.asObservable();
-  }
-
   isAuthenticated() {
     return !!this._localStorage.getItem(LocalStorageTypes.SESSION, 'user');
   }

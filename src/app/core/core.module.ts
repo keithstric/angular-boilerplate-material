@@ -5,6 +5,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import {MaterialModule} from './modules/material/material.module';
 import { CardComponent } from './components/card/card.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
 
 
 
@@ -12,11 +13,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   declarations: [
     CardComponent,
     ConfirmDialogComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserAvatarComponent
   ],
   exports: [
     CardComponent,
-    MaterialModule
+    MaterialModule,
+    UserAvatarComponent
   ],
   imports: [
     CommonModule,

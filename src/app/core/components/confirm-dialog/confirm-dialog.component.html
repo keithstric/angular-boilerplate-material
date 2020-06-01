@@ -3,6 +3,6 @@
   <span class="dialogMessage">{{data.message || 'Are you sure you want to perform that action?'}}</span>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onConfirm()">Confirm</button>
+  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button (click)="onConfirm()" color="primary">Confirm</button>
 </mat-dialog-actions>
