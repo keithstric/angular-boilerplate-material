@@ -1,0 +1,35 @@
+:host {
+  padding: 0;
+
+  &.small {
+    height: 48px;
+    width: 48px;
+  }
+
+  &.medium {
+    height: 64px;
+    width: 64px;
+  }
+
+  &.large {
+    height: 120px;
+    width: 120px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.avatar-container {
+  height: 100%;
+  width: 100%;
+
+  .avatar {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+  }
+}
