@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {PageNotFoundComponent} from 'src/app/core/components/page-not-found/page-not-found.component';
 import {AuthGuard} from 'src/app/core/guards/auth.guard';
+import {HomeComponent} from 'src/app/modules/home/home.component';
 
-
+/**
+ * This defines the application's routes. All base routes should be lazy loaded.
+ * @type {Routes}
+ */
 export const appRoutes: Routes = [
-  {path: '', redirectTo: 'auth', pathMatch: 'full', canActivate: [AuthGuard]},
+  {path: '', pathMatch: 'full', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)},
   {path: '**', component: PageNotFoundComponent}
 ];
