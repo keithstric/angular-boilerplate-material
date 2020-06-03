@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6. This is purely a boilerplate with authentication pages. I think mainly is an example layout more than anything else as there isn't a defined backend.
 
+The folder structure of this project was inspired by [this video](https://www.youtube.com/watch?v=WA95EJGhbLc&t=1s).
+
 ## Things to change
 
 Upon first configuration you will want to change the following items:
