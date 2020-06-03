@@ -9,12 +9,8 @@ import {PROJECT_NAME} from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    private _uiService: UiService
-  ) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this._uiService.notifyUser(`Welcome to ${PROJECT_NAME}`);
-  }
+  ngOnInit(): void { }
 
 }

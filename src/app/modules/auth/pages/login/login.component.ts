@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ErrorService} from 'src/app/core/services/error/error.service';
 import {AuthService} from 'src/app/core/services/auth/auth.service';
+import {UiService} from 'src/app/core/services/ui/ui.service';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _error: ErrorService,
     private _auth: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _ui: UiService
   ) { }
 
   ngOnInit(): void {
@@ -70,6 +72,7 @@ export class LoginComponent implements OnInit {
   loginClick() {
     this._auth.login(this.loginData.getRawValue())
       .subscribe((resp) => {
+        this._ui.notifyUser(`Welcome to ${PROJECT_NAME}!`);
         this._router.navigateByUrl('/auth/user');
       });
   }
