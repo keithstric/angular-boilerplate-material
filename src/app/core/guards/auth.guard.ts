@@ -3,6 +3,10 @@ import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Route
 import { Observable } from 'rxjs';
 import {AuthService} from '../services/auth/auth.service';
 
+/**
+ * This guard is for checking if a user is authenticated or not. If not, then
+ * redirect to the login page
+ */
 @Injectable({
   providedIn: 'root'
 })

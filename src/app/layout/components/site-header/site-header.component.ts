@@ -45,7 +45,7 @@ export class SiteHeaderComponent implements OnInit, OnDestroy {
   }
 
   private listenToAuth() {
-    this._auth.authData.subscribe((user) => {
+    this.userSub = this._auth.authData.subscribe((user) => {
       this.user = user;
     });
   }

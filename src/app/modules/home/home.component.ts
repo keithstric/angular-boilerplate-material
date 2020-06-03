@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UiService} from 'src/app/core/services/ui/ui.service';
+import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._uiService.notifyUser('Welcome to code-review');
+    this._uiService.notifyUser(`Welcome to ${PROJECT_NAME}`);
   }
 
 }

@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {LocalStorageTypes} from 'src/app/core/interfaces/local-storage.interface';
+import {PROJECT_NAME} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
+  prefix: string = PROJECT_NAME;
 
   constructor() { }
 
@@ -25,7 +27,7 @@ export class LocalStorageService {
    */
   getItem(storageType: LocalStorageTypes, varName: string) {
     const storage = LocalStorageService._getStorage(storageType);
-    const val = storage.getItem(`code-review:${varName}`);
+    const val = storage.getItem(`${this.prefix}:${varName}`);
     try {
       return JSON.parse(val);
     }catch (e) {
@@ -42,7 +44,7 @@ export class LocalStorageService {
   setItem(storageType: LocalStorageTypes, varName: string, value: any) {
     const storage = LocalStorageService._getStorage(storageType);
     const val = typeof value === 'string' ? value : JSON.stringify(value);
-    storage.setItem(`code-review:${varName}`, val);
+    storage.setItem(`${this.prefix}:${varName}`, val);
   }
 
   /**
@@ -52,7 +54,7 @@ export class LocalStorageService {
    */
   removeItem(storageType: LocalStorageTypes, varName: string) {
     const storage = LocalStorageService._getStorage(storageType);
-    storage.removeItem(`code-review:${varName}`);
+    storage.removeItem(`${this.prefix}:${varName}`);
   }
 
 }

@@ -2,6 +2,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterTestingModule} from '@angular/router/testing';
 import {ErrorService} from 'src/app/core/services/error/error.service';
 import {HttpService} from 'src/app/core/services/http/http.service';
 import {LocalStorageService} from 'src/app/core/services/local-storage/local-storage.service';
@@ -18,7 +19,8 @@ describe('RegisterComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        RouterTestingModule
       ],
       declarations: [ RegisterComponent ],
       providers: [

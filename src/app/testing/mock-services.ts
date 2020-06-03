@@ -2,6 +2,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {ApiEndpoints, ApiMethod} from 'src/app/core/interfaces/api.interface';
 import userJson from 'src/app/testing/mock-data/user.json';
+import {PROJECT_NAME} from 'src/environments/environment';
 
 export class MockHttpService {
   requestCall(api: ApiEndpoints | string, method: ApiMethod, data?: any) { }
@@ -34,7 +35,7 @@ export class MockAuthService {
 }
 
 export class MockHeaderService {
-  currentHeaderTitleSub: BehaviorSubject<string> = new BehaviorSubject('code-review');
+  currentHeaderTitleSub: BehaviorSubject<string> = new BehaviorSubject(PROJECT_NAME);
   updateHeaderTitle(newTitle: string) {}
 }
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {delay} from 'rxjs/operators';
 import {LoadingService} from 'src/app/layout/services/loading/loading.service';
+import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {LoadingService} from 'src/app/layout/services/loading/loading.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'angular-boilerplate';
+  title = PROJECT_NAME;
   loading: boolean = false;
 
   constructor(

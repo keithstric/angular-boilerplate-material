@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6. This is purely a boilerplate with authentication pages. I think mainly is an example layout more than anything else as there isn't a defined backend.
 
+## Things to change
+
+Upon first configuration you will want to change the following items:
+
+* `package.json` - The name field. This is used to drive the site title, header title and localStorage/sessionStorage prefix
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

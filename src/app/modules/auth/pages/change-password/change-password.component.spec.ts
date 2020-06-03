@@ -9,8 +9,7 @@ describe('ChangePasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChangePasswordComponent ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      declarations: [ ChangePasswordComponent ]
     })
     .compileComponents();
   }));

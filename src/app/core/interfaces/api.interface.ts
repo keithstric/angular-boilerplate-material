@@ -11,7 +11,7 @@ export enum ApiMethod {
  * doesn't take into account endpoint patterns ('/api/something/:id')
  */
 export enum ApiEndpoints {
-  LOGIN = '/api/login',
-  REGISTER = '/api/register',
-  LOGOUT = '/api/logout'
+  LOGIN = '/api/auth/login',
+  REGISTER = '/api/auth/register',
+  LOGOUT = '/api/auth/logout'
 }

@@ -6,6 +6,12 @@ import { SiteHeaderComponent } from 'src/app/layout/components/site-header/site-
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { PageBreadcrumbHeaderComponent } from './components/page-breadcrumb-header/page-breadcrumb-header.component';
 
+const components = [
+  SiteHeaderComponent,
+  BreadcrumbsComponent,
+  PageBreadcrumbHeaderComponent
+];
+
 @NgModule({
   imports: [
     CommonModule,
@@ -13,14 +19,10 @@ import { PageBreadcrumbHeaderComponent } from './components/page-breadcrumb-head
     RouterModule
   ],
   declarations: [
-    SiteHeaderComponent,
-    BreadcrumbsComponent,
-    PageBreadcrumbHeaderComponent
+    ...components
   ],
   exports: [
-    SiteHeaderComponent,
-    BreadcrumbsComponent,
-    PageBreadcrumbHeaderComponent
+    ...components
   ]
 })
 export class LayoutModule { }

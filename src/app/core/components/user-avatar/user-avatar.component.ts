@@ -16,7 +16,6 @@ export class UserAvatarComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    console.log('UserAvatarComponent.ngOnInit');
     this.userSub = this._auth.authData.subscribe((user) => {
       this.user = user;
     });

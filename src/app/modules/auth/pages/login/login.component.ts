@@ -69,11 +69,15 @@ export class LoginComponent implements OnInit {
    */
   loginClick() {
     this._auth.login(this.loginData.getRawValue())
-      .then((resp) => {
-        this._router.navigateByUrl('/');
+      .subscribe((resp) => {
+        this._router.navigateByUrl('/auth/user');
       });
   }
 
+  /**
+   * On keypress if the key is the enter key, perform the login
+   * @param evt {KeyboardEvent}
+   */
   onKeypress(evt: KeyboardEvent) {
     if (evt.key === 'Enter' && !this.loginData.invalid) {
       this.loginClick();

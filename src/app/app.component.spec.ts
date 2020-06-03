@@ -1,8 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import {PROJECT_NAME} from 'src/environments/environment';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -20,10 +22,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-boilerplate'`, () => {
+  it(`should have as title ${PROJECT_NAME}`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-boilerplate');
+    expect(app.title).toEqual(PROJECT_NAME);
   });
 
 });

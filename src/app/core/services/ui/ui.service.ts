@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {MatSnackBar, MatSnackBarConfig, MatSnackBarDismiss, MatSnackBarRef} from '@angular/material/snack-bar';
-import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

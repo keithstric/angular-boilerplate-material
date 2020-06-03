@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
+/**
+ * This service is for managing the state of a loading spinner
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +13,11 @@ export class LoadingService {
 
   constructor() { }
 
+  /**
+   * This method is only called from the @link(HttpRequestInterceptor)
+   * @param loading {boolean}
+   * @param url {string}
+   */
   setLoading(loading: boolean, url: string) {
     if (loading === true) {
       this.loadingMap.set(url, loading);

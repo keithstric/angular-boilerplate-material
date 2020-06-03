@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import {tap} from 'rxjs/operators';
 import {ApiEndpoints, ApiMethod} from 'src/app/core/interfaces/api.interface';
 import {LocalStorageTypes} from 'src/app/core/interfaces/local-storage.interface';
 import {ErrorService} from 'src/app/core/services/error/error.service';
@@ -27,13 +28,20 @@ export class AuthService {
   }
 
   login(loginData) {
-    return new Promise((resolve, reject) => {
-      this._http.requestCall(ApiEndpoints.LOGIN, ApiMethod.POST, loginData)
-        .subscribe((resp) => {
-          this._localStorage.setItem(LocalStorageTypes.SESSION, 'user', resp);
-          this.authData.next(resp);
-          resolve(resp);
-        });
-    });
+    return this._http.requestCall(ApiEndpoints.LOGIN, ApiMethod.POST, loginData)
+      .pipe(tap((resp) => {
+        this._localStorage.setItem(LocalStorageTypes.SESSION, 'user', resp);
+        this.authData.next(resp);
+        return resp;
+      }));
+  }
+
+  register(registrationData) {
+    return this._http.requestCall(ApiEndpoints.REGISTER, ApiMethod.POST, registrationData)
+      .pipe(tap((resp) => {
+        this._localStorage.setItem(LocalStorageTypes.SESSION, 'user', resp);
+        this.authData.next(resp);
+        return resp;
+      }));
   }
 }
