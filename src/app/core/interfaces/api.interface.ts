@@ -15,5 +15,7 @@ export enum ApiMethod {
 export enum ApiEndpoints {
   LOGIN = '/api/auth/login',
   REGISTER = '/api/auth/register',
-  LOGOUT = '/api/auth/logout'
+  LOGOUT = '/api/auth/logout',
+  FORGOT = '/api/auth/forgot',
+  CHANGE_PW = '/api/auth/changepw'
 }

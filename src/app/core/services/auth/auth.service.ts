@@ -44,4 +44,12 @@ export class AuthService {
         return resp;
       }));
   }
+
+  changePassword(chgPwData) {
+    return this._http.requestCall(ApiEndpoints.CHANGE_PW, ApiMethod.PUT, chgPwData);
+  }
+
+  forgotPassword(forgotPwData) {
+    return this._http.requestCall(ApiEndpoints.FORGOT, ApiMethod.PUT, forgotPwData);
+  }
 }

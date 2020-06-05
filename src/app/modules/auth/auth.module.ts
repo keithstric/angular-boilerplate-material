@@ -7,20 +7,23 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { UserComponent } from './pages/user/user.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'changepw', component: ChangePasswordComponent},
+  {path: 'forgot', component: ForgotPasswordComponent},
   {path: 'user', component: UserComponent}
 ];
 
 @NgModule({
   declarations: [
+    ChangePasswordComponent,
+    ForgotPasswordComponent,
     LoginComponent,
     RegisterComponent,
-    ChangePasswordComponent,
     UserComponent
   ],
   imports: [
