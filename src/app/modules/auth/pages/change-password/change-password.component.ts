@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {AuthService} from 'src/app/core/services/auth/auth.service';
+import {UiService} from 'src/app/core/services/ui/ui.service';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({
@@ -20,7 +21,8 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
   constructor(
     private _formBuilder: FormBuilder,
     private _auth: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _ui: UiService
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +49,11 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
   }
 
   onUpdateClick() {
-    this._auth.changePassword(this.changePwForm.getRawValue());
+    this._auth.changePassword(this.changePwForm.getRawValue())
+      .subscribe((resp) => {
+        this._ui.notifyUser(`Password successfully updated`);
+        this._router.navigateByUrl('/auth/user');
+      });
   }
 
 }

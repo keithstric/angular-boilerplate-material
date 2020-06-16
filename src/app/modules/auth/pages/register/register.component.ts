@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiEndpoints, ApiMethod} from 'src/app/core/interfaces/api.interface';
 import {LocalStorageTypes} from 'src/app/core/interfaces/local-storage.interface';
+import {RawUser, User} from 'src/app/core/models/user.model';
 import {AuthService} from 'src/app/core/services/auth/auth.service';
 import {ErrorService} from 'src/app/core/services/error/error.service';
 import {HttpService} from 'src/app/core/services/http/http.service';
@@ -77,8 +78,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.errorMsg = undefined;
     this._auth.register(this.registrationData.getRawValue())
-      .subscribe((resp) => {
-        console.log('register, response=', resp);
+      .subscribe((resp: User) => {
         this._router.navigateByUrl('/auth/user');
       });
   }
