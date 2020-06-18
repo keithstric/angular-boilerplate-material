@@ -1,6 +1,8 @@
+import {HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Subject, throwError} from 'rxjs';
 import {UiService} from 'src/app/core/services/ui/ui.service';
+import {LoadingService} from 'src/app/layout/services/loading/loading.service';
 
 /**
  * This service is for surfacing errors in the UI. By default, we'll notify the user with a snackbar (toast) message.
@@ -23,7 +25,7 @@ export class ErrorService {
    * @param {string} notification - The notification message
    */
   notifyUser(notificationCode: number, notification: string) {
-    this._ui.notifyUser(`${notificationCode}: ${notification}`, 5000);
+    this._ui.notifyUserShowSnackbar(`${notificationCode}: ${notification}`, 5000);
   }
 
   /**
@@ -35,6 +37,12 @@ export class ErrorService {
   handleError(errorCode: number, message: string, err: Error) {
     this.notifyUser(errorCode, err.message);
     this.errorEvent.next(err);
+    return throwError(err);
+  }
+
+  handleResponseError(err: HttpErrorResponse) {
+    this.notifyUser(err.status, err.message);
+    this.errorEvent.next(err.error);
     return throwError(err);
   }
 }

@@ -1,7 +1,7 @@
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {HttpLoadingInterceptor} from 'src/app/core/interceptors/http-loading.interceptor';
+import {HttpRequestInterceptor} from 'src/app/core/interceptors/http-request-interceptor.service';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import {MaterialModule} from 'src/app/core/modules/material.module';
 import { CardComponent } from './components/card/card.component';
@@ -28,7 +28,7 @@ import { UserAvatarComponent } from './components/user-avatar/user-avatar.compon
     MaterialModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpLoadingInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true}
   ]
 })
 export class CoreModule { }

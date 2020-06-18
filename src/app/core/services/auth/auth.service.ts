@@ -37,44 +37,42 @@ export class AuthService {
 
   login(loginData) {
     return this._http.requestCall(ApiEndpoints.LOGIN, ApiMethod.POST, loginData)
-      .pipe(tap((resp: RawUser) => {
-        const user: User = User.deserialize(resp);
-        this._localStorage.setItem(LocalStorageTypes.SESSION, 'user', user);
-        this.authData.next(user);
-        return user;
+      .pipe(tap((rawUser: RawUser) => {
+        return this.updateLocalUser(rawUser);
       }));
   }
 
   logout() {
     return this._http.requestCall(ApiEndpoints.LOGOUT, ApiMethod.GET)
-      .pipe(tap((args) => {
+      .pipe(tap((response) => {
         this._localStorage.removeItem(LocalStorageTypes.SESSION, 'user');
         this.authData.next(null);
-        return args;
+        return response;
       }));
   }
 
   register(registrationData) {
     return this._http.requestCall(ApiEndpoints.REGISTER, ApiMethod.POST, registrationData)
-      .pipe(tap((resp: RawUser) => {
-        const user: User = User.deserialize(resp);
-        this._localStorage.setItem(LocalStorageTypes.SESSION, 'user', user);
-        this.authData.next(user);
-        return user;
+      .pipe(tap((rawUser: RawUser) => {
+        return this.updateLocalUser(rawUser);
       }));
   }
 
   changePassword(chgPwData) {
     return this._http.requestCall(ApiEndpoints.CHANGE_PW, ApiMethod.PUT, chgPwData)
-      .pipe(tap((resp: RawUser) => {
-        const user: User = User.deserialize(resp);
-        this._localStorage.setItem(LocalStorageTypes.SESSION, 'user', user);
-        this.authData.next(user);
-        return user;
+      .pipe(tap((rawUser: RawUser) => {
+        return this.updateLocalUser(rawUser);
       }));
   }
 
   forgotPassword(forgotPwData) {
     return this._http.requestCall(ApiEndpoints.FORGOT, ApiMethod.PUT, forgotPwData);
+  }
+
+  updateLocalUser(rawUser: RawUser) {
+    const user: User = User.deserialize(rawUser);
+    this._localStorage.setItem(LocalStorageTypes.SESSION, 'user', user);
+    this.authData.next(user);
+    return user;
   }
 }

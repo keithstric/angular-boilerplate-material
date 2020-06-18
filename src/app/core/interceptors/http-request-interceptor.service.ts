@@ -3,37 +3,41 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpResponse
+  HttpInterceptor, HttpResponse, HttpErrorResponse
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
+import {ErrorService} from 'src/app/core/services/error/error.service';
 import {LoadingService} from '../../layout/services/loading/loading.service';
 
 @Injectable()
-export class HttpLoadingInterceptor implements HttpInterceptor {
+export class HttpRequestInterceptor implements HttpRequestInterceptor {
 
   constructor(
-    private _loading: LoadingService
+    private _loading: LoadingService,
+    private _error: ErrorService
   ) { }
 
   /**
    * When an http request starts, set loading to true. When the request is finished, set loading to false.
-   * If an error is thrown be sure loading is set to false. This is for managing the state of a loading spinner.
+   * If an error is thrown be sure loading is set to false.
    * @param request
    * @param next
+   * @returns {Observable<HttpEvent<any>>}
    */
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this._loading.setLoading(true, request.url);
     return next.handle(request)
-      .pipe(catchError(() => {
+      .pipe(catchError((err: HttpErrorResponse) => {
         this._loading.setLoading(false, request.url);
-        return next.handle(request);
+        return this._error.handleResponseError(err);
       }))
-      .pipe(tap<HttpEvent<any>>((evt: HttpEvent<any>) => {
-        if (evt instanceof HttpResponse) {
+      .pipe(tap<HttpEvent<any>>((httpEvent: HttpEvent<any>) => {
+        if (httpEvent instanceof HttpResponse) {
           this._loading.setLoading(false, request.url);
         }
-        return evt;
+        return httpEvent;
       }));
   }
 }
+

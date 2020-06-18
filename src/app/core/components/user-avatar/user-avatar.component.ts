@@ -9,7 +9,7 @@ import {AuthService} from 'src/app/core/services/auth/auth.service';
 })
 export class UserAvatarComponent implements OnInit, OnDestroy {
   user: any;
-  userSub: Subscription;
+  subscriptions: Subscription = new Subscription();
   initials: string;
 
   constructor(
@@ -17,14 +17,14 @@ export class UserAvatarComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.userSub = this._auth.authData.subscribe((user) => {
+    this.subscriptions.add(this._auth.authData.subscribe((user) => {
       this.user = user;
       this.initials = this._auth.getUserInitials();
-    });
+    }));
   }
 
   ngOnDestroy() {
-    this.userSub.unsubscribe();
+    this.subscriptions.unsubscribe();
   }
 
 }

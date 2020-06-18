@@ -1,3 +1,4 @@
+// tslint:disable-next-line:no-namespace
 export namespace Times {
   export type date = iso_date;
   export type iso_date = string; // yyyy-MM-dd'T'HH:mm:ss.SSSZZ

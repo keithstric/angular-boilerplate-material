@@ -9,7 +9,6 @@ import {
 } from './serializers/serial';
 import { Serializable } from './decorators/serial.decorator';
 
-// TODO(jason): create utils.ts somewhere else
 export type RecursivePartial<T> = {
   [P in keyof T]?:
   T[P] extends (infer U)[] ? RecursivePartial<U>[] :
@@ -66,7 +65,6 @@ export abstract class Mapping<Raw> {
     return new this().applyRaw(raw);
   }
 
-
   constructor(model?: any) {
     this.apply(model as this);
   }
@@ -76,6 +74,11 @@ export abstract class Mapping<Raw> {
     return this;
   }
 
+  /**
+   * Update the model's properties from the raw JSON object's properties
+   * @param raw {Raw}
+   * @returns {Mapping}
+   */
   applyRaw(raw?: Partial<Raw>): this {
     if (!raw) {
       return this;
