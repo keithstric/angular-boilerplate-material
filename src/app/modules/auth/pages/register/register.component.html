@@ -7,27 +7,27 @@
         <mat-form-field appearance="standard">
           <mat-label>First Name</mat-label>
           <input matInput placeholder="First Name" type="email" [formControl]="first_name" name="first_name">
-          <mat-error *ngIf="email.invalid">{{getErrorMessage('first_name')}}</mat-error>
+          <mat-error *ngIf="email.invalid">{{getFieldErrorMessage('first_name')}}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Last Name</mat-label>
           <input matInput placeholder="Last Name" type="email" [formControl]="last_name" name="last_name">
-          <mat-error *ngIf="email.invalid">{{getErrorMessage('last_name')}}</mat-error>
+          <mat-error *ngIf="email.invalid">{{getFieldErrorMessage('last_name')}}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Email Address</mat-label>
           <input matInput placeholder="youremail@knowhere.com" type="email" [formControl]="email" name="email">
-          <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
+          <mat-error *ngIf="email.invalid">{{getFieldErrorMessage('email')}}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Password</mat-label>
           <input matInput placeholder="Password" type="password" [formControl]="password" name="password">
-          <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error>
+          <mat-error *ngIf="password.invalid">{{getFieldErrorMessage('password')}}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Verify Password</mat-label>
           <input matInput placeholder="Password Again" type="password" [formControl]="verify_password" name="verify_password">
-          <mat-error *ngIf="password.invalid">{{getErrorMessage('verify_password')}}</mat-error>
+          <mat-error *ngIf="password.invalid">{{getFieldErrorMessage('verify_password')}}</mat-error>
         </mat-form-field>
       </form>
     </mat-card-content>

@@ -49,10 +49,11 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
   }
 
   onUpdateClick() {
-    this._auth.changePassword(this.changePwForm.getRawValue())
+    const chgPwSub = this._auth.changePassword(this.changePwForm.getRawValue())
       .subscribe((resp) => {
-        this._ui.notifyUser(`Password successfully updated`);
+        this._ui.notifyUserShowSnackbar(`Password successfully updated`);
         this._router.navigateByUrl('/auth/user');
+        chgPwSub.unsubscribe();
       });
   }
 

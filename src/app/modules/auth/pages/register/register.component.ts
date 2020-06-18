@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {noop, Subscription} from 'rxjs';
 import {ApiEndpoints, ApiMethod} from 'src/app/core/interfaces/api.interface';
 import {LocalStorageTypes} from 'src/app/core/interfaces/local-storage.interface';
 import {RawUser, User} from 'src/app/core/models/user.model';
@@ -15,7 +16,7 @@ import {PROJECT_NAME} from 'src/environments/environment';
   templateUrl: './register.component.html',
   styleUrls: ['../auth-shared-styles.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   registrationData: FormGroup;
   email: FormControl = new FormControl('', [Validators.required, Validators.email]);
   password: FormControl = new FormControl('', [Validators.required]);
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
   first_name: FormControl = new FormControl('', [Validators.required]);
   errorMsg: string;
   projectName: string = PROJECT_NAME;
+  subscriptions: Subscription = new Subscription();
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -33,15 +35,19 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Subscribe to the error service to catch the error
-    this._error.errorEvent.subscribe((err: Error) => {
+    // Subscribe to the error service to catch errors
+    this.subscriptions.add(this._error.errorEvent.subscribe((err: Error) => {
       this.errorMsg = err.message;
-    });
+    }));
     this.buildFormGroup();
   }
 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
   /**
-   * Build the formGroup
+   * Build the formGroup and set default values
    */
   private buildFormGroup() {
     this.registrationData = this._formBuilder.group({
@@ -57,7 +63,7 @@ export class RegisterComponent implements OnInit {
    * Gets the validation message to show for each field
    * @param {string} field
    */
-  getErrorMessage(field: string) {
+  getFieldErrorMessage(field: string) {
     if (field === 'email') {
       if (this.email.hasError('required')) {
         return 'You must provide an email address';
@@ -77,10 +83,9 @@ export class RegisterComponent implements OnInit {
    */
   register() {
     this.errorMsg = undefined;
-    this._auth.register(this.registrationData.getRawValue())
+    this.subscriptions.add(this._auth.register(this.registrationData.getRawValue())
       .subscribe((resp: User) => {
         this._router.navigateByUrl('/auth/user');
-      });
+      }));
   }
-
 }

@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 import {ErrorService} from 'src/app/core/services/error/error.service';
 import {AuthService} from 'src/app/core/services/auth/auth.service';
 import {PROJECT_NAME} from 'src/environments/environment';
@@ -20,6 +21,7 @@ export class UserComponent implements OnInit, OnChanges {
   errorMsg: string;
   updateIsDisabled: boolean = true;
   projectName: string = PROJECT_NAME;
+  subscriptions: Subscription = new Subscription();
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -29,13 +31,10 @@ export class UserComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-    if (!this._auth.isAuthenticated()) {
-      this._router.navigate(['/auth/login']);
-    }
     // Subscribe to the error service to catch the error
-    this._error.errorEvent.subscribe((err: Error) => {
+    this.subscriptions.add(this._error.errorEvent.subscribe((err: Error) => {
       this.errorMsg = err.message;
-    });
+    }));
     this.buildFormGroup();
     this.userData.valueChanges.subscribe(val => {
       if (this.userData.dirty) {
@@ -66,7 +65,7 @@ export class UserComponent implements OnInit, OnChanges {
    * Gets the validation message to show for each field
    * @param {string} field
    */
-  getErrorMessage(field: string) {
+  getFieldErrorMessage(field: string) {
     if (field === 'email') {
       if (this.email.hasError('required')) {
         return 'You must provide an email address';
