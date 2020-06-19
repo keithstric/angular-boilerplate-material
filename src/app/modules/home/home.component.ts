@@ -18,9 +18,6 @@ export class HomeComponent implements OnInit {
   async showNotification() {
     const notifyObj = await this._ui.showOsNotification('This is a title', 'This is the body', null, [{action: 'Action', title: 'Action'}]);
     console.log(notifyObj);
-    notifyObj.notification.onclick = (evt) => {
-      console.log('onclick evt=', evt);
-    };
   }
 
 }

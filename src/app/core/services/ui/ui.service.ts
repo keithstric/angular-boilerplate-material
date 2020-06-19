@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {MatSnackBar, MatSnackBarConfig, MatSnackBarDismiss, MatSnackBarRef} from '@angular/material/snack-bar';
+import {SwPush} from '@angular/service-worker';
 
 enum NotificationPermissions {
   GRANTED = 'granted',
@@ -19,7 +20,8 @@ export class UiService {
   notificationMap: Map<number, Notification> = new Map();
 
   constructor(
-    private _snackbar: MatSnackBar
+    private _snackbar: MatSnackBar,
+		private swPush: SwPush
   ) { }
 
   notifyUserShowSnackbar(msg: string, duration?: number, action?: string, actionFn?: (...args) => void) {
@@ -51,10 +53,14 @@ export class UiService {
     }
     if (notificationPermission === NotificationPermissions.GRANTED && title && body) {
       const timestamp = new Date().getTime();
-      const notification = new Notification(title, {icon, body});
-      console.log('notification=', notification);
-      this.notificationMap.set(timestamp, notification);
-      return {timestamp, notification};
+      const swReg = await navigator.serviceWorker.getRegistration();
+      if (swReg) {
+      	await swReg.showNotification(title, {body, icon, actions});
+			}
+      // const notification = new Notification(title, {icon, body});
+      // console.log('notification=', notification);
+      // this.notificationMap.set(timestamp, notification);
+      // return {timestamp, notification: swNotification};
     }
   }
 
