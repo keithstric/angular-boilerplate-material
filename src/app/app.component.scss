@@ -1,7 +1,7 @@
-@import 'variables';
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
 
 .loading-container {
-  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
 }
 
 .site-container {
-  font-size: 14px;
+  @include font-size(14px);
   font-family: Roboto, "Helvetica Neue", sans-serif;
   height: 100vh;
   background: #f1f1f1;

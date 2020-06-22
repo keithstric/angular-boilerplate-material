@@ -1,3 +1,9 @@
+@import 'src/scss/mixins';
+
+.page-container {
+	height: calc(100vh - 65px);
+}
+
 h1, h2 {
   color: #afafaf;
   opacity: 0.5;
@@ -6,9 +12,9 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 150px;
+  @include font-size(150px);
 }
 
 h2 {
-  font-size: 90px;
+  @include font-size(90px);
 }
