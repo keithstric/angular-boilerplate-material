@@ -32,6 +32,7 @@ export class MockAuthService {
     return userJson;
   }
   login(loginData: any) { }
+  getUserInitials() { return 'KS'; }
 }
 
 export class MockHeaderService {
