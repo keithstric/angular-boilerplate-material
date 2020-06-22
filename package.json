@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --port 4201",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+		"start-dist-server": "npm run build --prod && http-server dist/angular-boilerplate/ -p 8080"
   },
   "private": true,
   "dependencies": {
