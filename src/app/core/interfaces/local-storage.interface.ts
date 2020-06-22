@@ -1,4 +1,4 @@
 export enum LocalStorageTypes {
-  LOCAL = 'local',
-  SESSION = 'session'
+	LOCAL = 'local',
+	SESSION = 'session'
 }

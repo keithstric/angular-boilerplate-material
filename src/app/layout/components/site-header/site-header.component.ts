@@ -10,50 +10,50 @@ import {HeaderService} from 'src/app/layout/services/header/header.service';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './site-header.component.html',
-  styleUrls: ['./site-header.component.scss']
+	selector: 'app-header',
+	templateUrl: './site-header.component.html',
+	styleUrls: ['./site-header.component.scss']
 })
 export class SiteHeaderComponent implements OnInit, OnDestroy {
-  title: string;
-  titleSub: Subscription;
-  user: any;
-  userSub: Subscription;
+	title: string;
+	titleSub: Subscription;
+	user: any;
+	userSub: Subscription;
 
-  constructor(
-    private _header: HeaderService,
-    private _storage: LocalStorageService,
-    private _router: Router,
-    private _http: HttpService,
-    private _auth: AuthService
-  ) { }
+	constructor(
+		private _header: HeaderService,
+		private _storage: LocalStorageService,
+		private _router: Router,
+		private _http: HttpService,
+		private _auth: AuthService
+	) {	}
 
-  ngOnInit(): void {
-    this.listenToTitle();
-    this.listenToAuth();
-  }
+	ngOnInit(): void {
+		this.listenToTitle();
+		this.listenToAuth();
+	}
 
-  ngOnDestroy() {
-    this.titleSub.unsubscribe();
-    this.userSub.unsubscribe();
-  }
+	ngOnDestroy() {
+		this.titleSub.unsubscribe();
+		this.userSub.unsubscribe();
+	}
 
-  private listenToTitle() {
-    this.titleSub = this._header.currentHeaderTitleSub.subscribe((headerTitle: string) => {
-      this.title = headerTitle;
-    });
-  }
+	private listenToTitle() {
+		this.titleSub = this._header.currentHeaderTitleSub.subscribe((headerTitle: string) => {
+			this.title = headerTitle;
+		});
+	}
 
-  private listenToAuth() {
-    this.userSub = this._auth.authData.subscribe((user) => {
-      this.user = user;
-    });
-  }
+	private listenToAuth() {
+		this.userSub = this._auth.authData.subscribe((user) => {
+			this.user = user;
+		});
+	}
 
-  logout() {
-    this._auth.logout()
-      .subscribe((args) => {
-        this._router.navigateByUrl('/auth/login');
-      });
-  }
+	logout() {
+		this._auth.logout()
+			.subscribe((args) => {
+				this._router.navigateByUrl('/auth/login');
+			});
+	}
 }

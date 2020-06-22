@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class HeaderService {
-  currentHeaderTitleSub: BehaviorSubject<string> = new BehaviorSubject(PROJECT_NAME);
+	currentHeaderTitleSub: BehaviorSubject<string> = new BehaviorSubject(PROJECT_NAME);
 
-  constructor() {}
+	constructor() {
+	}
 
-  updateHeaderTitle(newTitle: string) {
-    const newHeader = newTitle || PROJECT_NAME;
-    this.currentHeaderTitleSub.next(newHeader);
-  }
+	updateHeaderTitle(newTitle: string) {
+		const newHeader = newTitle || PROJECT_NAME;
+		this.currentHeaderTitleSub.next(newHeader);
+	}
 }

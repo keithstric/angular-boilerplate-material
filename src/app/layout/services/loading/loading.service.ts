@@ -11,7 +11,8 @@ export class LoadingService {
 	loadingSub: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 	loadingMap: Map<string, boolean> = new Map<string, boolean>();
 
-	constructor() { }
+	constructor() {
+	}
 
 	/**
 	 * This method is only called from the @link(HttpRequestInterceptor)

@@ -1,4 +1,4 @@
 export interface ConfirmDialogData {
-  title?: string;
-  message?: string;
+	title?: string;
+	message?: string;
 }
