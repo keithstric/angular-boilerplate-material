@@ -14,9 +14,12 @@ class UserMapping extends Mapping<RawUser> {
 	get initials() {
 		return `${this.first_name.charAt(0).toUpperCase()}${this.last_name.charAt(0).toUpperCase()}`;
 	}
+
+	get fullName() {
+		return `${this.first_name} ${this.last_name}`;
+	}
 }
 
-export interface User extends Model<UserMapping> {
-}
+export interface User extends Model<UserMapping> { }
 
 export const User = createModel<User>(UserMapping);

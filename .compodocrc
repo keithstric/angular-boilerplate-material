@@ -1,0 +1,8 @@
+{
+	"tsconfig": "src/tsconfig.app.json",
+	"name": "angular-boilerplate",
+	"assetsFolder": "src/assets",
+	"theme": "vagrant",
+	"hideGenerator": true,
+	"open": true
+}

@@ -17,25 +17,27 @@ export class UiService {
 		horizontalPosition: 'center',
 		verticalPosition: 'bottom'
 	};
-	notificationMap: Map<number, Notification> = new Map();
 
 	constructor(
 		private _snackbar: MatSnackBar,
 		private swPush: SwPush
-	) {
-	}
+	) { }
 
 	notifyUserShowSnackbar(msg: string, duration?: number, action?: string, actionFn?: (...args) => void) {
 		duration = duration ? duration : 3000;
 		action = action || 'dismiss';
 		this.snackbarRef = this._snackbar.open(msg, action, {...this.snackbarConfig, duration});
-		this.snackbarRef.afterDismissed().subscribe((matSnackbarDismissedEvt: MatSnackBarDismiss) => {
-		});
-		this.snackbarRef.onAction().subscribe(() => {
-			if (actionFn) {
-				actionFn();
-			}
-		});
+		const dismissSub = this.snackbarRef.afterDismissed()
+			.subscribe((matSnackbarDismissedEvt: MatSnackBarDismiss) => {
+				dismissSub.unsubscribe();
+			});
+		const actionSub = this.snackbarRef.onAction()
+			.subscribe(() => {
+				if (actionFn) {
+					actionFn();
+				}
+				actionSub.unsubscribe();
+			});
 	}
 
 	async checkOSNotificationPermissions() {
@@ -59,12 +61,6 @@ export class UiService {
 			if (swReg) {
 				await swReg.showNotification(title, {body, icon, actions});
 			}
-			// const notification = new Notification(title, {icon, body});
-			// console.log('notification=', notification);
-			// this.notificationMap.set(timestamp, notification);
-			// return {timestamp, notification: swNotification};
 		}
 	}
-
-
 }
