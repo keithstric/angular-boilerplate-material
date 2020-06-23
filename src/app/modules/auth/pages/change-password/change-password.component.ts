@@ -34,6 +34,9 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
 
 	getErrorMessage(field: string) { }
 
+	/**
+	 * Create the FormGroup and update the changePwForm property
+	 */
 	buildFormGroup() {
 		this.changePwForm = this._formBuilder.group({
 			password: this.password,
@@ -42,10 +45,16 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
 		});
 	}
 
+	/**
+	 * Handler for clicking the cancel button
+	 */
 	onCancelClick() {
 		this._router.navigateByUrl('/auth/user');
 	}
 
+	/**
+	 * Handler for clicking the update button
+	 */
 	onUpdateClick() {
 		const chgPwSub = this._auth.changePassword(this.changePwForm.getRawValue())
 			.subscribe((resp) => {

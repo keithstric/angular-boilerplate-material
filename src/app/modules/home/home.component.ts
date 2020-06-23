@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit(): void { }
 
+	/**
+	 * Show an OS notification
+	 */
 	async showNotification() {
 		const notifyObj = await this._ui.showOsNotification('This is a title', 'This is the body', null, [{action: 'Action', title: 'Action'}]);
 		console.log(notifyObj);

@@ -17,10 +17,18 @@ export class ConfirmDialogComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
+	/**
+	 * just close the dialog and return false
+	 * @returns {boolean}
+	 */
 	onCancel() {
 		this.dialogRef.close(false);
 	}
 
+	/**
+	 * Close the dialog and return true
+	 * @returns {boolean}
+	 */
 	onConfirm() {
 		this.dialogRef.close(true);
 	}

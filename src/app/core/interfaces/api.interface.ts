@@ -1,3 +1,6 @@
+/**
+ * Http request methods
+ */
 export enum ApiMethod {
 	GET = 'GET',
 	POST = 'POST',

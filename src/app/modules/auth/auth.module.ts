@@ -18,6 +18,9 @@ const routes: Routes = [
 	{path: 'user', component: UserComponent}
 ];
 
+/**
+ * The AuthModule
+ */
 @NgModule({
 	declarations: [
 		ChangePasswordComponent,

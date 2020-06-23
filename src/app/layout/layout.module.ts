@@ -15,6 +15,9 @@ const components = [
 	PageBreadcrumbHeaderComponent
 ];
 
+/**
+ * The LayoutModule
+ */
 @NgModule({
 	imports: [
 		CommonModule,

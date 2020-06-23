@@ -1,5 +1,5 @@
 {
-	"tsconfig": "src/tsconfig.app.json",
+	"tsconfig": "./tsconfig.compodoc.json",
 	"name": "angular-boilerplate",
 	"assetsFolder": "src/assets",
 	"theme": "vagrant",

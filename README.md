@@ -17,6 +17,7 @@ The folder structure of this project was inspired by [this video](https://www.yo
 * Base scss flexbox classes, various scss mixins and theme implementation
 * Testing infrastructure
 * [compodoc](https://compodoc.app/) implementation
+* Uses [Angular Material](https://material.angular.io/) for theming
 
 ## Things to change
 
@@ -33,7 +34,7 @@ Upon first configuration you will want to change the following items:
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4201/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

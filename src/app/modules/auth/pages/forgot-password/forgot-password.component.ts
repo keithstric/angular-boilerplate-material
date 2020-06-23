@@ -32,6 +32,9 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 
 	}
 
+	/**
+	 * Creates the FormGroup and populates the forgotPwForm property
+	 */
 	buildFormGroup() {
 		this.forgotPwForm = this._formBuilder.group({
 			email: this.email,
@@ -40,10 +43,16 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
 		});
 	}
 
+	/**
+	 * Click handler for the cancel button
+	 */
 	onCancelClick() {
 		this._router.navigateByUrl('/auth/login');
 	}
 
+	/**
+	 * Click handler for the Update button
+	 */
 	onUpdateClick() {
 		this._auth.forgotPassword(this.forgotPwForm.getRawValue());
 	}

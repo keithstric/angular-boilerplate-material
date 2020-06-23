@@ -13,7 +13,9 @@ import {CardComponent} from './components/card/card.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {UserAvatarComponent} from './components/user-avatar/user-avatar.component';
 
-
+/**
+ * Core module
+ */
 @NgModule({
 	declarations: [
 		CardComponent,
@@ -32,7 +34,11 @@ import {UserAvatarComponent} from './components/user-avatar/user-avatar.componen
 		UserAvatarComponent
 	],
 	providers: [
-		{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: HttpRequestInterceptor,
+			multi: true
+		},
 		AuthService,
 		ErrorService,
 		HttpService,

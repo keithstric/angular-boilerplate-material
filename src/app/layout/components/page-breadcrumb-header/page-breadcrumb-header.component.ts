@@ -13,6 +13,10 @@ export class PageBreadcrumbHeaderComponent implements OnInit {
 
 	ngOnInit(): void { }
 
+	/**
+	 * If the add button is clicked fires the addButtonClick event
+	 * @event {addButtonClick}
+	 */
 	clickAddButton() {
 		this.addButtonClick.emit();
 	}

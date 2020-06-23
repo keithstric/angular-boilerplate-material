@@ -38,18 +38,27 @@ export class SiteHeaderComponent implements OnInit, OnDestroy {
 		this.userSub.unsubscribe();
 	}
 
+	/**
+	 * Setup a listener for a title change
+	 */
 	private listenToTitle() {
 		this.titleSub = this._header.currentHeaderTitleSub.subscribe((headerTitle: string) => {
 			this.title = headerTitle;
 		});
 	}
 
+	/**
+	 * Setup a listener for a user
+	 */
 	private listenToAuth() {
 		this.userSub = this._auth.authData.subscribe((user) => {
 			this.user = user;
 		});
 	}
 
+	/**
+	 * Logout the current user
+	 */
 	logout() {
 		this._auth.logout()
 			.subscribe((args) => {

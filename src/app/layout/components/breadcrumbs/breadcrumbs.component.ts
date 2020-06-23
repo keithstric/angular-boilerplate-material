@@ -20,10 +20,14 @@ export class BreadcrumbsComponent implements OnInit {
 		this.listenToBreadcrumbs();
 	}
 
+	/**
+	 * Listen to breadcrumbs service and update the breadCrumbs property
+	 */
 	listenToBreadcrumbs() {
-		this.breadcumbsSub = this._breadcrumbs.breadcrumbsSub.subscribe((breadcrumbs) => {
-			this.breadcrumbs = breadcrumbs;
-		});
+		this.breadcumbsSub = this._breadcrumbs.breadcrumbsSub
+			.subscribe((breadcrumbs) => {
+				this.breadcrumbs = breadcrumbs;
+			});
 	}
 
 }

@@ -23,7 +23,14 @@ export class UiService {
 		private swPush: SwPush
 	) { }
 
-	notifyUserShowSnackbar(msg: string, duration?: number, action?: string, actionFn?: (...args) => void) {
+	/**
+	 * Show a snackbar/toast message
+	 * @param msg {string}
+	 * @param duration {number}
+	 * @param action {string}
+	 * @param actionFn {Function}
+	 */
+	notifyUserShowSnackbar(msg: string, duration?: number, action?: string, actionFn?: (...args) => void): void {
 		duration = duration ? duration : 3000;
 		action = action || 'dismiss';
 		this.snackbarRef = this._snackbar.open(msg, action, {...this.snackbarConfig, duration});
@@ -40,6 +47,10 @@ export class UiService {
 			});
 	}
 
+	/**
+	 * Get permission to show notifications
+	 * @returns {NotificationPermissions}
+	 */
 	async checkOSNotificationPermissions() {
 		if (!('Notification' in window)) {
 			throw new Error('Notifications are not supported');
@@ -48,6 +59,13 @@ export class UiService {
 		}
 	}
 
+	/**
+	 * Show an OS Notification
+	 * @param title {string}
+	 * @param body {string}
+	 * @param icon {string}
+	 * @param actions {NotificationAction[]}
+	 */
 	async showOsNotification(title: string, body: string, icon?: string, actions?: NotificationAction[]) {
 		let notificationPermission = NotificationPermissions.DEFAULT;
 		try {

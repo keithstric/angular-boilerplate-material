@@ -18,6 +18,12 @@ export class AuthGuard implements CanActivate {
 	) {
 	}
 
+	/**
+	 * Determine if the active route can be activated or not. If not, redirect to login page
+	 * @param next {ActivatedRouteSnapshot}
+	 * @param state {RouterStateSnapshot}
+	 * @returns {boolean}
+	 */
 	canActivate(
 		next: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

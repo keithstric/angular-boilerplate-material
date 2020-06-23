@@ -30,6 +30,9 @@ const materialModules = [
 	MatToolbarModule
 ];
 
+/**
+ * Module for Angular Material
+ */
 @NgModule({
 	declarations: [],
 	imports: [

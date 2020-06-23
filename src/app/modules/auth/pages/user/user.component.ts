@@ -80,10 +80,16 @@ export class UserComponent implements OnInit, OnChanges {
 		return '';
 	}
 
+	/**
+	 * Handler for updating user information
+	 */
 	update() {
 		console.log('update user with', this.userData.getRawValue());
 	}
 
+	/**
+	 * Reset the form to it's original values
+	 */
 	reset() {
 		const userObj = this._auth.getUser();
 		if (userObj) {

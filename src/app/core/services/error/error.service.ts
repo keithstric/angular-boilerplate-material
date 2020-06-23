@@ -41,6 +41,11 @@ export class ErrorService {
 		return throwError(err);
 	}
 
+	/**
+	 * Handle a response error: notify the user and update the errorEvent Subject
+	 * @param err
+	 * @returns {Observable<Error>}
+	 */
 	handleResponseError(err: HttpErrorResponse) {
 		this.notifyUser(err.status, err.message);
 		this.errorEvent.next(err.error);

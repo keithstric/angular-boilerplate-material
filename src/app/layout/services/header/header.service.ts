@@ -11,6 +11,10 @@ export class HeaderService {
 	constructor() {
 	}
 
+	/**
+	 * Update the current title with a new one
+	 * @param newTitle
+	 */
 	updateHeaderTitle(newTitle: string) {
 		const newHeader = newTitle || PROJECT_NAME;
 		this.currentHeaderTitleSub.next(newHeader);

@@ -21,6 +21,10 @@ export class AppComponent implements OnInit {
 		this.listenToLoading();
 	}
 
+	/**
+	 * Listen to the loading service's loadingSub and
+	 * toggle visibility of the spinner
+	 */
 	listenToLoading() {
 		this._loading.loadingSub
 			.pipe(delay(0)) // This prevents a ExpressionChangedAfterItHasBeenCheckedError for subsequent requests

@@ -11,10 +11,18 @@ class UserMapping extends Mapping<RawUser> {
 	last_name: string;
 	email: string;
 
+	/**
+	 * The current user's initials
+	 * @returns {string}
+	 */
 	get initials() {
 		return `${this.first_name.charAt(0).toUpperCase()}${this.last_name.charAt(0).toUpperCase()}`;
 	}
 
+	/**
+	 * The current user's full name
+	 * @returns {string}
+	 */
 	get fullName() {
 		return `${this.first_name} ${this.last_name}`;
 	}
