@@ -39,7 +39,7 @@ export class MockUiService {
 }
 
 export class MockAuthService {
-	authData: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+	authData: BehaviorSubject<any> = new BehaviorSubject<any>(userJson);
 
 	isAuthenticated() {
 	}

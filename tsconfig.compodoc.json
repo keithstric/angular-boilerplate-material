@@ -12,6 +12,7 @@
 		"src/app/testing/**/*.*",
 		"src/**/*.spec.ts",
 		"e2e/**/*.*",
-		"src/**/*.d.ts"
+		"src/**/*.d.ts",
+		"src/**/*.stories.ts"
 	]
 }
