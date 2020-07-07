@@ -32,7 +32,7 @@ Upon first configuration you will want to change the following items:
 
 * `compodoc` - Generate [compodoc documentation](https://compodoc.app/)
 * `start-dist-server` - Run `build` then start an [http-server](https://www.npmjs.com/package/http-server) pointed to the `dist` directory
-* 'storybook' - Start the [storybook](https://storybook.js.org) application
+* `storybook` - Start the [storybook](https://storybook.js.org) application
 
 ## Development server
 
