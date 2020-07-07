@@ -34,6 +34,9 @@ const components = [
 		BreadcrumbService,
 		HeaderService,
 		LoadingService
+	],
+	entryComponents: [
+		SiteHeaderComponent
 	]
 })
 export class LayoutModule {

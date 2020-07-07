@@ -4,12 +4,14 @@ export interface RawUser {
 	first_name: string;
 	last_name: string;
 	email: string;
+	avatar: string;
 }
 
 class UserMapping extends Mapping<RawUser> {
 	first_name: string;
 	last_name: string;
 	email: string;
+	avatar: string;
 
 	/**
 	 * The current user's initials

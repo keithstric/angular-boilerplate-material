@@ -52,7 +52,7 @@ export class BreadcrumbService {
 		if (!breadcrumbExists) {
 			this.breadcrumbs.push(breadCrumb);
 			this.breadcrumbsSub.next(this.breadcrumbs);
-			this._header.updateHeaderTitle(breadCrumb.title);
+			// this._header.updateHeaderTitle(breadCrumb.title);
 		}
 	}
 

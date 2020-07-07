@@ -1,22 +1,38 @@
-import {Injectable} from '@angular/core';
+import {Component, Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import {SiteHeaderComponent} from 'src/app/layout/components/site-header/site-header.component';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class HeaderService {
-	currentHeaderTitleSub: BehaviorSubject<string> = new BehaviorSubject(PROJECT_NAME);
+	// currentHeaderTitleSub: BehaviorSubject<string> = new BehaviorSubject(PROJECT_NAME);
+	private headerSource = new BehaviorSubject<any>(SiteHeaderComponent);
+	/**
+	 * Observable for updating the site header
+	 * @type {Observable}
+	 */
+	headerComponent = this.headerSource.asObservable();
 
 	constructor() {
 	}
 
 	/**
+	 * Change the site header
+	 * @param component {Component}
+	 */
+	setHeader(component: any) {
+		this.headerSource.next(component);
+	}
+
+	/**
 	 * Update the current title with a new one
 	 * @param newTitle
+	 * @deprecated
 	 */
-	updateHeaderTitle(newTitle: string) {
-		const newHeader = newTitle || PROJECT_NAME;
-		this.currentHeaderTitleSub.next(newHeader);
-	}
+	// updateHeaderTitle(newTitle: string) {
+	// 	const newHeader = newTitle || PROJECT_NAME;
+	// 	this.currentHeaderTitleSub.next(newHeader);
+	// }
 }
