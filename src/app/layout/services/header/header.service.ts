@@ -7,7 +7,6 @@ import {PROJECT_NAME} from 'src/environments/environment';
 	providedIn: 'root'
 })
 export class HeaderService {
-	// currentHeaderTitleSub: BehaviorSubject<string> = new BehaviorSubject(PROJECT_NAME);
 	private headerSource = new BehaviorSubject<any>(SiteHeaderComponent);
 	/**
 	 * Observable for updating the site header
@@ -25,14 +24,4 @@ export class HeaderService {
 	setHeader(component: any) {
 		this.headerSource.next(component);
 	}
-
-	/**
-	 * Update the current title with a new one
-	 * @param newTitle
-	 * @deprecated
-	 */
-	// updateHeaderTitle(newTitle: string) {
-	// 	const newHeader = newTitle || PROJECT_NAME;
-	// 	this.currentHeaderTitleSub.next(newHeader);
-	// }
 }
