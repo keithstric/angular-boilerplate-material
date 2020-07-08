@@ -1,11 +1,6 @@
-@import '../../node_modules/@angular/material/theming';
+@import 'theme';
 
-$app-primary: mat-palette($mat-grey);
-$app-accent: mat-palette($mat-light-blue);
-$app-warn: mat-palette($mat-pink);
-$app-error: mat-palette($mat-red);
-
+/* Variables for the theme colors */
 $primary: mat-color($app-primary);
 $accent: mat-color($app-accent);
 $warn: mat-color($app-warn);
-$error: mat-color($app-error);

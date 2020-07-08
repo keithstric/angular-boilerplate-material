@@ -1,0 +1,15 @@
+@import '~node_modules/@angular/material/theming';
+@include mat-core();
+
+mat-dialog-actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+}
+
+$app-primary: mat-palette($mat-indigo);
+$app-accent: mat-palette($mat-light-blue);
+$app-warn: mat-palette($mat-pink);
+$app-light-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+@include angular-material-theme($app-light-theme);
