@@ -4,12 +4,15 @@ import {
 	MockCardComponent,
 	MockPageBreadcrumbHeaderComponent,
 	MockPageNotFoundComponent,
-	MockSiteHeaderComponent, MockStorybookOpenDialogComponent
+	MockSiteHeaderComponent,
+	MockStorybookOpenDialogComponent,
+	MockStorybookPageBreadcrumbHeaderComponent,
 } from 'src/app/testing/mock-components';
 
 const components = [
 	MockCardComponent,
 	MockStorybookOpenDialogComponent,
+	MockStorybookPageBreadcrumbHeaderComponent,
 	MockPageBreadcrumbHeaderComponent,
 	MockPageNotFoundComponent,
 	MockSiteHeaderComponent

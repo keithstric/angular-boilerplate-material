@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {ConfirmDialogComponent} from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
 import {ConfirmDialogData} from 'src/app/core/interfaces/confirm-dialog-data.interface';
+import {PageBreadcrumbHeaderComponent} from 'src/app/layout/components/page-breadcrumb-header/page-breadcrumb-header.component';
+import {BreadcrumbService} from 'src/app/layout/services/breadcrumb/breadcrumb.service';
 
 @Component({
 	selector: 'app-card',
@@ -33,6 +35,39 @@ export class MockSiteHeaderComponent {
 	template: '<p>Mock page not found</p>'
 })
 export class MockPageNotFoundComponent {
+}
+
+@Component({
+	selector: 'app-page-breadcrumb-header',
+		template: `<div class="flex-row page-header">
+		<app-breadcrumbs></app-breadcrumbs>
+		<span class="spacer"></span>
+		<button *ngIf="showAddButton" mat-button (click)="clickAddButton()" type="button">
+			<mat-icon>add</mat-icon>
+		</button>
+	</div>`
+})
+export class MockStorybookPageBreadcrumbHeaderComponent extends PageBreadcrumbHeaderComponent implements OnInit{
+
+	constructor(
+		private _breadcrumbs: BreadcrumbService
+	) {
+		super();
+	}
+
+	ngOnInit() {
+		this._breadcrumbs.addBreadcrumb({url: 'http://localhost:4201', title: 'Home'});
+		this._breadcrumbs.addBreadcrumb({url: 'http://localhost:4201/page1', title: 'Page1'});
+		this._breadcrumbs.addBreadcrumb({url: 'http://localhost:4201/page2', title: 'Page2'});
+	}
+
+	/**
+	 * If the add button is clicked fires the addButtonClick event
+	 * @event {addButtonClick}
+	 */
+	clickAddButton() {
+		this.addButtonClick.emit();
+	}
 }
 
 /**
