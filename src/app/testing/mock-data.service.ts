@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import userJson from 'src/app/testing/mock-data/user.json';
 
 /**
@@ -6,13 +6,14 @@ import userJson from 'src/app/testing/mock-data/user.json';
  */
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class MockDataService {
 
-  constructor() { }
+	constructor() {
+	}
 
-  get user() {
-    return userJson;
-  }
+	get user() {
+		return userJson;
+	}
 }

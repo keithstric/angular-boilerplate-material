@@ -5,7 +5,7 @@
 import {version, name} from '../../package.json';
 
 export const environment = {
-  production: false
+	production: false
 };
 
 export const PROJECT_VERSION = version;

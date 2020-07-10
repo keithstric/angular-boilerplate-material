@@ -1,21 +1,27 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {ServiceWorkerModule, SwPush} from '@angular/service-worker';
+import {environment} from 'src/environments/environment';
 
-import { UiService } from './ui.service';
+import {UiService} from './ui.service';
 
 describe('UiService', () => {
-  let service: UiService;
+	let service: UiService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        MatSnackBarModule
-      ]
-    });
-    service = TestBed.inject(UiService);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({
+			imports: [
+				MatSnackBarModule,
+				ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
+			],
+			providers: [
+				SwPush
+			]
+		});
+		service = TestBed.inject(UiService);
+	});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+	it('should be created', () => {
+		expect(service).toBeTruthy();
+	});
 });

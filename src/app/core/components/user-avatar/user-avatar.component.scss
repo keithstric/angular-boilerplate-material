@@ -1,3 +1,6 @@
+@import 'src/scss/variables';
+@import 'src/scss/mixins';
+
 :host {
   padding: 0;
 
@@ -30,6 +33,6 @@
     padding: 0;
     height: 100%;
     width: 100%;
-    border-radius: 50%;
+    @include border-radius(100%);
   }
 }

@@ -4,15 +4,39 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 The folder structure of this project was inspired by [this video](https://www.youtube.com/watch?v=WA95EJGhbLc&t=1s).
 
+## Features
+
+* Dynamic loading spinner
+* Authentication Guard
+* Some base components (card, confirm dialog, user-avatar)
+* local/session storage
+* Push and toaster Notification support
+* Dynamic model implementation (use user.model.ts as an example)
+* Base application layout
+* Service Worker implementation
+* Base scss flexbox classes, various scss mixins and theme implementation
+* Testing infrastructure
+* [compodoc](https://compodoc.app/) implementation
+* Uses [Angular Material](https://material.angular.io/) for theming
+* [Storybook](https://storybook.js.org) already setup and working
+
 ## Things to change
 
 Upon first configuration you will want to change the following items:
 
-* `package.json` - The name field. This is used to drive the site title, header title and localStorage/sessionStorage prefix
+* `package.json` - The name field. This is used to drive the site title, header title and localStorage/sessionStorage prefix.
+* `src/environments/environment*.ts` - Update the Notifications Server public key variable. This is to support push notifications.
+* `src/app/core/interfaces/api.interface.ts` - Update the `ApiEndpoints` enum to match your routes
+
+## Custom npm scripts
+
+* `compodoc` - Generate [compodoc documentation](https://compodoc.app/)
+* `start-dist-server` - Run `build` then start an [http-server](https://www.npmjs.com/package/http-server) pointed to the `dist` directory
+* `storybook` - Start the [storybook](https://storybook.js.org) application
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4201/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
