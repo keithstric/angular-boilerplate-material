@@ -29,24 +29,24 @@ export class HttpService {
 		// console.log('HttpService.requestCall, api=', api);
 		let response: Observable<any>;
 		let reqObservable: Observable<any>;
-    switch (method) {
-      case ApiMethod.GET:
-        reqObservable = this._http.get(api);
+		switch (method) {
+			case ApiMethod.GET:
+				reqObservable = this._http.get(api);
 				break;
 			case ApiMethod.DELETE:
 				reqObservable = this._http.delete(api);
-        break;
-      case ApiMethod.PATCH:
-        reqObservable = this._http.patch(api, data);
-        break;
-      case ApiMethod.POST:
-        reqObservable = this._http.post(api, data);
+				break;
+			case ApiMethod.PATCH:
+				reqObservable = this._http.patch(api, data);
+				break;
+			case ApiMethod.POST:
+				reqObservable = this._http.post(api, data);
 				break;
 			case ApiMethod.PUT:
 				reqObservable = this._http.put(api, data);
-        break;
-    }
-    response = reqObservable.pipe(catchError((err) => this.handleError(err, this)));
+				break;
+		}
+		response = reqObservable.pipe(catchError((err) => this.handleError(err, this)));
 		return response;
 	}
 
