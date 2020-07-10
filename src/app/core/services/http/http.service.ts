@@ -1,6 +1,7 @@
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {ApiEndpoints, ApiMethod} from 'src/app/core/interfaces/api.interface';
 import {ErrorService} from 'src/app/core/services//error/error.service';
@@ -19,28 +20,25 @@ export class HttpService {
   requestCall(api: ApiEndpoints | string, method: ApiMethod, data?: any) {
     // console.log('HttpService.requestCall, api=', api);
     let response;
+    let reqObservable: Observable<any>;
     switch (method) {
       case ApiMethod.GET:
-        response = this._http.get(api)
-          .pipe(catchError((err) => this.handleError(err, this)));
+        reqObservable = this._http.get(api);
         break;
       case ApiMethod.DELETE:
-        response = this._http.delete(api)
-          .pipe(catchError((err) => this.handleError(err, this)));
+        reqObservable = this._http.delete(api);
         break;
       case ApiMethod.PATCH:
-        response = this._http.patch(api, data)
-          .pipe(catchError((err) => this.handleError(err, this)));
+        reqObservable = this._http.patch(api, data);
         break;
       case ApiMethod.POST:
-        response = this._http.post(api, data)
-          .pipe(catchError((err) => this.handleError(err, this)));
+        reqObservable = this._http.post(api, data);
         break;
       case ApiMethod.PUT:
-        response = this._http.put(api, data)
-          .pipe(catchError((err) => this.handleError(err, this)));
+        reqObservable = this._http.put(api, data);
         break;
     }
+    response = reqObservable.pipe(catchError((err) => this.handleError(err, this)));
     return response;
   }
 
