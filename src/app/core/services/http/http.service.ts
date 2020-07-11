@@ -46,7 +46,8 @@ export class HttpService {
 				reqObservable = this._http.put(api, data);
 				break;
 		}
-		response = reqObservable.pipe(catchError((err) => this.handleError(err, this)));
+		response = reqObservable
+			.pipe(catchError((err) => this.handleError(err, this)));
 		return response;
 	}
 
