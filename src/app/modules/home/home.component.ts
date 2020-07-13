@@ -9,18 +9,8 @@ import {PROJECT_NAME} from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
 
-	constructor(
-		private _ui: UiService
-	) { }
+	constructor() { }
 
 	ngOnInit(): void { }
-
-	/**
-	 * Show an OS notification
-	 */
-	async showNotification() {
-		const notifyObj = await this._ui.showOsNotification('This is a title', 'This is the body', null, [{action: 'Action', title: 'Action'}]);
-		console.log(notifyObj);
-	}
 
 }
