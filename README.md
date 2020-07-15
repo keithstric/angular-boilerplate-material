@@ -16,6 +16,7 @@ The folder structure of this project was inspired by [this video](https://www.yo
 * Service Worker implementation
 * Base scss flexbox classes, various scss mixins and theme implementation
 * Testing infrastructure
+* Global Error Handling
 * [compodoc](https://compodoc.app/) implementation
 * Uses [Angular Material](https://material.angular.io/) for theming
 * [Storybook](https://storybook.js.org) already setup and working
