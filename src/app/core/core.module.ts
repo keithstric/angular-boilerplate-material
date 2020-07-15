@@ -10,7 +10,6 @@ import {UiService} from 'src/app/core/services/ui/ui.service';
 import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
 import {MaterialModule} from 'src/app/core/modules/material.module';
 import {CardComponent} from './components/card/card.component';
-import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {UserAvatarComponent} from './components/user-avatar/user-avatar.component';
 
 /**
@@ -20,7 +19,6 @@ import {UserAvatarComponent} from './components/user-avatar/user-avatar.componen
 	declarations: [
 		CardComponent,
 		ConfirmDialogComponent,
-		PageNotFoundComponent,
 		UserAvatarComponent
 	],
 	imports: [

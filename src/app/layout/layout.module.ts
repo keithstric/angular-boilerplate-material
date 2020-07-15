@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {CoreModule} from 'src/app/core/core.module';
+import {PageNotFoundComponent} from 'src/app/layout/components/page-not-found/page-not-found.component';
 import {SiteHeaderComponent} from 'src/app/layout/components/site-header/site-header.component';
 import {BreadcrumbService} from 'src/app/layout/services/breadcrumb/breadcrumb.service';
 import {HeaderService} from 'src/app/layout/services/header/header.service';
@@ -12,7 +13,8 @@ import {PageBreadcrumbHeaderComponent} from './components/page-breadcrumb-header
 const components = [
 	SiteHeaderComponent,
 	BreadcrumbsComponent,
-	PageBreadcrumbHeaderComponent
+	PageBreadcrumbHeaderComponent,
+	PageNotFoundComponent
 ];
 
 /**
