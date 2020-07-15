@@ -1,8 +1,21 @@
 <h1 mat-dialog-title>{{data.title || 'Confirm Action'}}</h1>
 <mat-dialog-content>
-  <span class="dialogMessage">{{data.message || 'Are you sure you want to perform that action?'}}</span>
+  <span *ngIf="data.message" class="dialogMessage">
+		{{data.message || 'Are you sure you want to perform that action?'}}
+	</span>
+	<div *ngIf="data.messageHtml" class="dialogMessage" [innerHTML]="data.messageHtml"></div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-	<button mat-raised-button *ngIf="data && data.noCancelButton === true ? false : true" (click)="onCancel()">Cancel</button>
-  <button mat-raised-button (click)="onConfirm()" color="accent">Confirm</button>
+	<button
+		mat-raised-button
+		*ngIf="data && data.noCancelButton === true ? false : true"
+		(click)="onCancel()">
+		{{data.cancelButtonText || 'Cancel'}}
+	</button>
+  <button
+		mat-raised-button
+		(click)="onConfirm()"
+		color="accent">
+		{{data.confirmButtonText || 'Confirm'}}
+	</button>
 </mat-dialog-actions>

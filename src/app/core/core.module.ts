@@ -1,5 +1,5 @@
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpRequestInterceptor} from 'src/app/core/interceptors/http-request-interceptor.service';
 import {AuthService} from 'src/app/core/services/auth/auth.service';
@@ -34,11 +34,8 @@ import {UserAvatarComponent} from './components/user-avatar/user-avatar.componen
 		UserAvatarComponent
 	],
 	providers: [
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: HttpRequestInterceptor,
-			multi: true
-		},
+		{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},
+		{provide: ErrorHandler, useClass: ErrorService},
 		AuthService,
 		ErrorService,
 		HttpService,

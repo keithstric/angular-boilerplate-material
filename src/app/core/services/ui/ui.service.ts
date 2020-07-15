@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {MatSnackBar, MatSnackBarConfig, MatSnackBarDismiss, MatSnackBarRef} from '@angular/material/snack-bar';
 import {SwPush} from '@angular/service-worker';
+import {ConfirmDialogComponent} from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
+import {ConfirmDialogData} from 'src/app/core/interfaces/confirm-dialog-data.interface';
 
 enum NotificationPermissions {
 	GRANTED = 'granted',
@@ -20,7 +23,8 @@ export class UiService {
 
 	constructor(
 		private _snackbar: MatSnackBar,
-		private swPush: SwPush
+		private swPush: SwPush,
+		private _dialog: MatDialog
 	) { }
 
 	/**
@@ -80,5 +84,20 @@ export class UiService {
 				await swReg.showNotification(title, {body, icon, actions});
 			}
 		}
+	}
+
+	/**
+	 * Show a confirmation dialog
+	 *
+	 * @example
+	 * const ref = this._ui.showConfirmDialog({message: 'foo', title: 'bar'});
+	 * // if you don't care about the result, you can omit this
+	 * ref.afterOpen().subscribe(result => {console.log(result)});
+	 *
+	 * @param {ConfirmDialogData} dialogData
+	 * @returns {MatDialogRef<ConfirmDialogComponent, ConfirmDialogData>}
+	 */
+	notifyUserShowConfirmDialog(dialogData: ConfirmDialogData): MatDialogRef<ConfirmDialogComponent, ConfirmDialogData> {
+		return this._dialog.open(ConfirmDialogComponent, {data: dialogData});
 	}
 }

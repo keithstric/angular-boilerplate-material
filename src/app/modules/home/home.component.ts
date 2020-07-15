@@ -12,4 +12,15 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit(): void { }
 
+	onClick() {
+		// TypeError
+		// (null as any).f();
+
+		// URIError
+		// decodeURIComponent('%');
+
+		// Plain'ole Error
+		throw new Error('Ooops');
+	}
+
 }

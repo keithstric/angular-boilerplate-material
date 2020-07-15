@@ -64,7 +64,7 @@ export class HttpService {
 			if (error.status === 401) {
 				this._router.navigateByUrl('/auth/login');
 			}
-			return this._error.handleError(error.status, error.error.message, error.error);
+			return this._error.handleRequestError(error.status, error.error.message, error.error);
 		}
 	}
 }

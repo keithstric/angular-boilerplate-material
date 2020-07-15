@@ -8,9 +8,29 @@ export const environment = {
 	production: false
 };
 
+/**
+ * App version from package.json
+ * @type {string}
+ */
 export const PROJECT_VERSION = version;
+
+/**
+ * App name from package.json
+ * @type {string}
+ */
 export const PROJECT_NAME = name;
+
+/**
+ * The notification server public key for push notifications
+ * @type {string}
+ */
 export const NOTIFICATION_SERVER_PUBLIC_KEY = '';
+
+/**
+ * Set to true for error dialogs to be shown
+ * @type {boolean}
+ */
+export const DEBUG_DIALOGS = false;
 
 /*
  * For easier debugging in development mode, you can import the following file
