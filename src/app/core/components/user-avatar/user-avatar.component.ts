@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {AuthService} from 'src/app/core/services/auth/auth.service';
 
@@ -15,6 +15,7 @@ export class UserAvatarComponent implements OnInit, OnDestroy {
 	user: any;
 	subscriptions: Subscription = new Subscription();
 	initials: string;
+	@Output() avatarClicked = new EventEmitter<any>();
 
 	constructor(
 		private _auth: AuthService
@@ -30,6 +31,16 @@ export class UserAvatarComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.subscriptions.unsubscribe();
+	}
+
+	/**
+	 * emit the avatarClicked event
+	 * @param evt
+	 * @listens click#avatar-container
+	 */
+	avatarClick(evt: MouseEvent) {
+		evt.stopPropagation();
+		this.avatarClicked.emit(evt);
 	}
 
 }

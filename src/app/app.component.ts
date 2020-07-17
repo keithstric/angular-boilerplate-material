@@ -34,6 +34,9 @@ export class AppComponent implements OnInit, OnDestroy {
 		this.subscriptions.unsubscribe();
 	}
 
+	/**
+	 * Listen to changes of the header and update the header component
+	 */
 	listenToHeader() {
 		this.subscriptions.add(this._header.headerComponent.subscribe((header: Component) => {
 			this.headerComponent = header;

@@ -1,14 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {noop, Subscription} from 'rxjs';
-import {ApiEndpoints, ApiMethod} from 'src/app/core/interfaces/api.interface';
-import {LocalStorageTypes} from 'src/app/core/interfaces/local-storage.interface';
-import {RawUser, User} from 'src/app/core/models/user.model';
+import {Subscription} from 'rxjs';
+import {User} from 'src/app/core/models/user.model';
 import {AuthService} from 'src/app/core/services/auth/auth.service';
 import {ErrorService} from 'src/app/core/services/error/error.service';
-import {HttpService} from 'src/app/core/services/http/http.service';
-import {LocalStorageService} from 'src/app/core/services/local-storage/local-storage.service';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({
