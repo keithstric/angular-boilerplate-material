@@ -64,4 +64,14 @@ export const confirmDialogNoCancelButton = () => ({
 	}
 });
 
+export const confirmDialogCustomActionNames = () => ({
+	component: MockStorybookOpenDialogComponent,
+	props: {
+		data: {
+			cancelButtonText: 'Custom Cancel',
+			confirmButtonText: 'Custom Confirm'
+		}
+	}
+})
+
 

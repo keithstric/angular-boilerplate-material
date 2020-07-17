@@ -90,3 +90,22 @@ export class MockStorybookOpenDialogComponent implements OnInit {
 	}
 }
 
+/**
+ * This component is for capturing a click event on the avatar in the
+ * user-avatar.stories.ts storybook story
+ */
+@Component({
+	selector: 'app-mock-avatar',
+	template: `
+		<p>Click the avatar and see the console for the click message</p>
+		<div style="height: 48px; width: 48px;">
+			<app-user-avatar (avatarClicked)="onAvatarClicked($event)"></app-user-avatar>
+		</div>`
+})
+export class MockStorybookUserAvatarComponent {
+
+	onAvatarClicked(evt: any) {
+		console.log('Avatar Clicked!', evt);
+	}
+}
+
