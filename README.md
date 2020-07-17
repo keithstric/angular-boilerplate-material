@@ -25,8 +25,8 @@ The folder structure of this project was inspired by [this video](https://www.yo
 
 Upon first configuration you will want to change the following items:
 
-* `package.json` - The name field. This is used to drive the site title, header title and localStorage/sessionStorage prefix.
-* `src/environments/environment*.ts` - Update the Notifications Server public key variable. This is to support push notifications.
+* `package.json` - The name field. This is used to drive the site title, header title and localStorage/sessionStorage prefix. I've made this a template on GitHub so this step may not be required.
+* `src/environments/environment*.ts` - Update the Notifications Server public key variable. This is to support push notifications. Leave it blank if push notifications are not going to be used
 * `src/app/core/interfaces/api.interface.ts` - Update the `ApiEndpoints` enum to match your routes
 
 ## Custom npm scripts
