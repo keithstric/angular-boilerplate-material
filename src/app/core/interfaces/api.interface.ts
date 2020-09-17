@@ -1,6 +1,8 @@
 /**
  * Http request methods
  */
+import {User} from 'src/app/core/models/user.model';
+
 export enum ApiMethod {
 	GET = 'GET',
 	POST = 'POST',
@@ -22,3 +24,14 @@ export enum ApiEndpoints {
 	FORGOT = '/api/auth/forgot',
 	CHANGE_PW = '/api/auth/changepw'
 }
+
+/**
+ * This maps top level api request routes to a class. For example, if a request is
+ * made to "/api/person" which returns an array of people, we want each item in that
+ * array to be an instance of User. Like wise a request to "/api/person/<id>" returns
+ * a single person, we also want that to be an instance of User.
+ */
+export const ApiRouteToClass = {
+	'/api/auth': User,
+	'/api/person': User
+};

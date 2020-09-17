@@ -1,7 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {Injector, NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from 'src/app/core/core.module';
+import {AuthService} from 'src/app/core/services/auth/auth.service';
+import {ServiceLocator} from 'src/app/core/services/service-locator';
 import {LayoutModule} from 'src/app/layout/layout.module';
 import {HomeModule} from 'src/app/modules/home/home.module';
 
@@ -26,8 +28,11 @@ import {environment} from '../environments/environment';
 		LayoutModule,
 		ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
 	],
-	providers: [],
+	providers: [AuthService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
+	constructor(private _injector: Injector) {
+		ServiceLocator.injector = _injector;
+	}
 }

@@ -34,11 +34,13 @@ import {UserAvatarComponent} from './components/user-avatar/user-avatar.componen
 	providers: [
 		{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},
 		{provide: ErrorHandler, useClass: ErrorService},
-		AuthService,
 		ErrorService,
 		HttpService,
 		LocalStorageService,
 		UiService
+	],
+	entryComponents: [
+		ConfirmDialogComponent
 	]
 })
 export class CoreModule { }
