@@ -3,11 +3,12 @@ import {withKnobs} from '@storybook/addon-knobs';
 import {moduleMetadata} from '@storybook/angular';
 import {ConfirmDialogComponent} from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
 import {MaterialModule} from 'src/app/core/modules/material.module';
-import {MockStorybookOpenDialogComponent} from 'src/app/testing/mock-components';
+import {MockStorybookDialogContentComponent, MockStorybookOpenDialogComponent} from 'src/app/testing/mock-components';
 
 // @ts-ignore
 import confirmDialogNotes from './README.md';
 
+// Module configuration for the stories
 export default {
 	title: 'confirm-dialog',
 	decorators: [
@@ -17,10 +18,14 @@ export default {
 				BrowserAnimationsModule
 			],
 			declarations: [
+				MockStorybookDialogContentComponent,
 				MockStorybookOpenDialogComponent,
 				ConfirmDialogComponent
 			],
-			entryComponents: [ConfirmDialogComponent]
+			entryComponents: [
+				ConfirmDialogComponent,
+				MockStorybookDialogContentComponent
+			]
 		}),
 		withKnobs
 	],
@@ -57,7 +62,7 @@ export const confirmDialogNoCancelButton = () => ({
 	component: MockStorybookOpenDialogComponent,
 	props: {
 		data: {
-			title: 'Custom Title',
+			title: 'No Cancel Button',
 			message: 'This is a custom message',
 			noCancelButton: true
 		}
@@ -68,10 +73,53 @@ export const confirmDialogCustomActionNames = () => ({
 	component: MockStorybookOpenDialogComponent,
 	props: {
 		data: {
+			title: 'Custom Action Names',
 			cancelButtonText: 'Custom Cancel',
 			confirmButtonText: 'Custom Confirm'
 		}
 	}
-})
+});
 
+export const confirmDialogHtmlMessage = () => ({
+	component: MockStorybookOpenDialogComponent,
+	props: {
+		data: {
+			title: 'Display HTML as the message',
+			messageHtml:
+				`<p>This is an <b>HTML message</b> with a pre block</p>
+				<pre>
+					${JSON.stringify({data: {title: 'Display HTML as the message'}}, null , 2)}
+				</pre>`
+		}
+	}
+});
+
+export const confirmDialogHtmlTitle = () => ({
+	component: MockStorybookOpenDialogComponent,
+	props: {
+		data: {
+			titleHtml: '<h1 class="header">Display HTML as the title</h1><div class="subheading">A Subheading</div>'
+		}
+	}
+});
+
+export const confirmDialogComponentMessage = () => ({
+	component: MockStorybookOpenDialogComponent,
+	props: {
+		data: {
+			title: 'Display Component as message',
+			messageComponent: MockStorybookDialogContentComponent
+		}
+	}
+});
+
+export const confirmDialogTemplateMessage = () => ({
+	component: MockStorybookOpenDialogComponent,
+	props: {
+		data: {
+			title: 'Display an ng-template as the message',
+			messageTemplate: 'exampleTemplate from MockStorybookOpenDialogComponent'
+		}
+	}
+});
 

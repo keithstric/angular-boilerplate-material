@@ -1,5 +1,4 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {AuthService} from 'src/app/core/services/auth/auth.service';
 import {MockAuthService} from 'src/app/testing/mock-services';
 

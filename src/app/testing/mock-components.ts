@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {ConfirmDialogComponent} from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
 import {ConfirmDialogData} from 'src/app/core/interfaces/confirm-dialog-data.interface';
@@ -40,12 +40,12 @@ export class MockPageNotFoundComponent {
 @Component({
 	selector: 'app-page-breadcrumb-header',
 		template: `<div class="flex-row page-header">
-		<app-breadcrumbs></app-breadcrumbs>
-		<span class="spacer"></span>
-		<button *ngIf="showAddButton" mat-button (click)="clickAddButton()" type="button">
-			<mat-icon>add</mat-icon>
-		</button>
-	</div>`
+			<app-breadcrumbs></app-breadcrumbs>
+			<span class="spacer"></span>
+			<button *ngIf="showAddButton" mat-button (click)="clickAddButton()" type="button">
+				<mat-icon>add</mat-icon>
+			</button>
+		</div>`
 })
 export class MockStorybookPageBreadcrumbHeaderComponent extends PageBreadcrumbHeaderComponent implements OnInit{
 
@@ -76,18 +76,36 @@ export class MockStorybookPageBreadcrumbHeaderComponent extends PageBreadcrumbHe
  */
 @Component({
 	selector: 'app-mock-open-dialog',
-	template: ``
+	template: `<ng-template #exampleTemplate>
+		This is from a template (#exampleTemplate) inside MockStorybookOpenDialogComponent
+	</ng-template>`
 })
 export class MockStorybookOpenDialogComponent implements OnInit {
 	@Input() data: ConfirmDialogData = {};
+	@ViewChild('exampleTemplate', {static: true}) exampleTemplate: TemplateRef<any>;
 
 	constructor(
 		public dialog: MatDialog
 	) {}
 
 	ngOnInit() {
+		if (this.data.messageTemplate) {
+			this.data.messageTemplate = this.exampleTemplate;
+		}
 		this.dialog.open(ConfirmDialogComponent, {data: this.data});
 	}
+}
+
+/**
+ * This component is for the confirm-dialog.stories.ts storybook story to display
+ * a component as the message content
+ */
+@Component({
+	selector: 'app-mock-dialog-content',
+	template: `<p>This is a component (MockStorybookDialogContentComponent) {{text}}</p>`
+})
+export class MockStorybookDialogContentComponent {
+	text: string = 'with some dynamic text from the "text" property';
 }
 
 /**

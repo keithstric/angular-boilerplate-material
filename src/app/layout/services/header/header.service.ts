@@ -1,7 +1,6 @@
 import {Component, Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {SiteHeaderComponent} from 'src/app/layout/components/site-header/site-header.component';
-import {PROJECT_NAME} from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root'

@@ -18,19 +18,10 @@ export class ConfirmDialogComponent implements OnInit {
 	}
 
 	/**
-	 * just close the dialog and return false
-	 * @returns {boolean}
+	 * Close the dialog and return the result
+	 * @param {boolean} result
 	 */
-	onCancel() {
-		this.dialogRef.close(false);
+	onActionClick(result: boolean) {
+		this.dialogRef.close(result);
 	}
-
-	/**
-	 * Close the dialog and return true
-	 * @returns {boolean}
-	 */
-	onConfirm() {
-		this.dialogRef.close(true);
-	}
-
 }

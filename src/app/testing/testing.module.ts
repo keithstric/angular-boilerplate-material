@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CoreModule} from 'src/app/core/core.module';
+import {LayoutModule} from 'src/app/layout/layout.module';
 import {
 	MockCardComponent,
 	MockPageBreadcrumbHeaderComponent,
@@ -9,6 +10,7 @@ import {
 	MockStorybookOpenDialogComponent,
 	MockStorybookPageBreadcrumbHeaderComponent,
 	MockStorybookUserAvatarComponent,
+	MockStorybookDialogContentComponent
 } from 'src/app/testing/mock-components';
 
 const components = [
@@ -18,7 +20,8 @@ const components = [
 	MockPageBreadcrumbHeaderComponent,
 	MockPageNotFoundComponent,
 	MockSiteHeaderComponent,
-	MockStorybookUserAvatarComponent
+	MockStorybookUserAvatarComponent,
+	MockStorybookDialogContentComponent
 ];
 
 @NgModule({
@@ -27,6 +30,7 @@ const components = [
 	],
 	imports: [
 		CommonModule,
+		LayoutModule,
 		CoreModule
 	],
 	exports: [
