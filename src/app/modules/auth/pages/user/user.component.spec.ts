@@ -6,8 +6,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ErrorService} from 'src/app/core/services/error/error.service';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
+import {ErrorService} from '@core/services/error/error.service';
+import {AuthService} from '@core/services/auth/auth.service';
 import {MockAuthService, MockErrorService} from 'src/app/testing/mock-services';
 
 import {UserComponent} from './user.component';

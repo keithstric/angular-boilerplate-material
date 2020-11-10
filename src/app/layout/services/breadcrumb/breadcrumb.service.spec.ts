@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {HeaderService} from 'src/app/layout/services/header/header.service';
+import {HeaderService} from '@layout/services/header/header.service';
 
 import { BreadcrumbService } from './breadcrumb.service';
 

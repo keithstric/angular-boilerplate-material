@@ -2,10 +2,10 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {User} from 'src/app/core/models/user.model';
-import {ErrorService} from 'src/app/core/services/error/error.service';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
-import {UiService} from 'src/app/core/services/ui/ui.service';
+import {User} from '@shared/models/user.model';
+import {ErrorService} from '@core/services/error/error.service';
+import {AuthService} from '@core/services/auth/auth.service';
+import {UiService} from '@core/services/ui/ui.service';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({

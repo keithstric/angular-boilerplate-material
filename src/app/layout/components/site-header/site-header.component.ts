@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
-import {HttpService} from 'src/app/core/services/http/http.service';
-import {LocalStorageService} from 'src/app/core/services/local-storage/local-storage.service';
-import {HeaderService} from 'src/app/layout/services/header/header.service';
+import {AuthService} from '@core/services/auth/auth.service';
+import {HttpService} from '@core/services/http/http.service';
+import {LocalStorageService} from '@core/services/local-storage/local-storage.service';
+import {HeaderService} from '@layout/services/header/header.service';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({

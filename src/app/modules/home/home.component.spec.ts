@@ -1,5 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {UiService} from 'src/app/core/services/ui/ui.service';
+import {UiService} from '@core/services/ui/ui.service';
 import {MockUiService} from 'src/app/testing/mock-services';
 
 import {HomeComponent} from './home.component';

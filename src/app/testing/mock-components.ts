@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {ConfirmDialogComponent} from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
-import {ConfirmDialogData} from 'src/app/core/interfaces/confirm-dialog-data.interface';
-import {PageBreadcrumbHeaderComponent} from 'src/app/layout/components/page-breadcrumb-header/page-breadcrumb-header.component';
-import {BreadcrumbService} from 'src/app/layout/services/breadcrumb/breadcrumb.service';
+import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
+import {ConfirmDialogData} from '@shared/interfaces/confirm-dialog-data.interface';
+import {PageBreadcrumbHeaderComponent} from '@layout/components/page-breadcrumb-header/page-breadcrumb-header.component';
+import {BreadcrumbService} from '@layout/services/breadcrumb/breadcrumb.service';
 
 @Component({
 	selector: 'app-card',

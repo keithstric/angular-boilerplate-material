@@ -1,13 +1,13 @@
 import {withKnobs} from '@storybook/addon-knobs';
 import {moduleMetadata} from '@storybook/angular';
-import {UserAvatarComponent} from 'src/app/core/components/user-avatar/user-avatar.component';
-import {MaterialModule} from 'src/app/core/modules/material.module';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
+import {UserAvatarComponent} from '@shared/components/user-avatar/user-avatar.component';
+import {MaterialModule} from '@core/modules/material.module';
+import {AuthService} from '@core/services/auth/auth.service';
 import {MockStorybookUserAvatarComponent} from 'src/app/testing/mock-components';
 import {MockAuthService} from 'src/app/testing/mock-services';
 
 // @ts-ignore
-import docs from './README.md';
+import docs from '@shared/components/user-avatar/README.md';
 
 export default {
 	title: 'app-user-avatar',

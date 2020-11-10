@@ -1,12 +1,12 @@
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {withKnobs} from '@storybook/addon-knobs';
 import {moduleMetadata} from '@storybook/angular';
-import {ConfirmDialogComponent} from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
-import {MaterialModule} from 'src/app/core/modules/material.module';
+import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
+import {MaterialModule} from '@core/modules/material.module';
 import {MockStorybookDialogContentComponent, MockStorybookOpenDialogComponent} from 'src/app/testing/mock-components';
 
 // @ts-ignore
-import confirmDialogNotes from './README.md';
+import confirmDialogNotes from '@shared/components/confirm-dialog/README.md';
 
 // Module configuration for the stories
 export default {

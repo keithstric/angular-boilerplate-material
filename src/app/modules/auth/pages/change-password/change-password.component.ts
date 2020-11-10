@@ -2,8 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
-import {UiService} from 'src/app/core/services/ui/ui.service';
+import {AuthService} from '@core/services/auth/auth.service';
+import {UiService} from '@core/services/ui/ui.service';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {CoreModule} from 'src/app/core/core.module';
-import {LayoutModule} from 'src/app/layout/layout.module';
+import {CoreModule} from '@core/core.module';
+import {LayoutModule} from '@layout/layout.module';
 import {
 	MockCardComponent,
 	MockPageBreadcrumbHeaderComponent,

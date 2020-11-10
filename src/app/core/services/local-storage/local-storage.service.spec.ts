@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {LocalStorageTypes} from 'src/app/core/interfaces/local-storage.interface';
+import {LocalStorageTypes} from '@core/interfaces/local-storage.interface';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 import {LocalStorageService} from './local-storage.service';

@@ -1,7 +1,7 @@
 import {HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Subject, throwError} from 'rxjs';
-import {UiService} from 'src/app/core/services/ui/ui.service';
+import {UiService} from '@core/services/ui/ui.service';
 import {DEBUG_DIALOGS} from 'src/environments/environment';
 
 /**

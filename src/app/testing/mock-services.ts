@@ -1,6 +1,6 @@
 import {HttpErrorResponse} from '@angular/common/http';
 import {BehaviorSubject, Subject} from 'rxjs';
-import {ApiEndpoints, ApiMethod} from 'src/app/core/interfaces/api.interface';
+import {ApiEndpoints, ApiMethod} from '@core/interfaces/api.interface';
 import userJson from 'src/app/testing/mock-data/user.json';
 import {PROJECT_NAME} from 'src/environments/environment';
 

@@ -3,8 +3,8 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
-import {ApiEndpoints, ApiMethod, ApiRouteToClass} from 'src/app/core/interfaces/api.interface';
-import {ErrorService} from 'src/app/core/services//error/error.service';
+import {ApiEndpoints, ApiMethod, ApiRouteToClass} from '@core/interfaces/api.interface';
+import {ErrorService} from '@core/services//error/error.service';
 
 @Injectable({
 	providedIn: 'root'

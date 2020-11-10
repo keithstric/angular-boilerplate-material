@@ -1,20 +1,23 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {CoreModule} from 'src/app/core/core.module';
-import {PageNotFoundComponent} from 'src/app/layout/components/page-not-found/page-not-found.component';
-import {SiteHeaderComponent} from 'src/app/layout/components/site-header/site-header.component';
-import {BreadcrumbService} from 'src/app/layout/services/breadcrumb/breadcrumb.service';
-import {HeaderService} from 'src/app/layout/services/header/header.service';
-import {LoadingService} from 'src/app/layout/services/loading/loading.service';
+import {CoreModule} from '@core/core.module';
+import {PageNotFoundComponent} from '@layout/components/page-not-found/page-not-found.component';
+import {SiteFooterComponent} from '@layout/components/site-footer/site-footer.component';
+import {SiteHeaderComponent} from '@layout/components/site-header/site-header.component';
+import {BreadcrumbService} from '@layout/services/breadcrumb/breadcrumb.service';
+import {HeaderService} from '@layout/services/header/header.service';
+import {LoadingService} from '@layout/services/loading/loading.service';
+import {SharedModule} from '@shared/shared.module';
 import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.component';
 import {PageBreadcrumbHeaderComponent} from './components/page-breadcrumb-header/page-breadcrumb-header.component';
 
 const components = [
-	SiteHeaderComponent,
 	BreadcrumbsComponent,
 	PageBreadcrumbHeaderComponent,
-	PageNotFoundComponent
+	PageNotFoundComponent,
+	SiteFooterComponent,
+	SiteHeaderComponent,
 ];
 
 /**
@@ -23,8 +26,8 @@ const components = [
 @NgModule({
 	imports: [
 		CommonModule,
-		CoreModule,
-		RouterModule
+		RouterModule,
+		SharedModule
 	],
 	declarations: [
 		...components

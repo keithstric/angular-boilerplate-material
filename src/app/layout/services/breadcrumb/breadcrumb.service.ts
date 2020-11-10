@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
-import {titleCaseString} from 'src/app/shared/utils/string.utils';
-import {HeaderService} from 'src/app/layout/services/header/header.service';
-import {Breadcrumb} from 'src/app/layout/interfaces/breadcrumb.interface';
+import {titleCaseString} from '@shared/utils/string.utils';
+import {HeaderService} from '@layout/services/header/header.service';
+import {Breadcrumb} from '@layout/interfaces/breadcrumb.interface';
 
 /**
  * Provides management of breadcrumbs base on the route

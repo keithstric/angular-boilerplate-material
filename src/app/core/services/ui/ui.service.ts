@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {MatSnackBar, MatSnackBarConfig, MatSnackBarDismiss, MatSnackBarRef} from '@angular/material/snack-bar';
 import {SwPush} from '@angular/service-worker';
-import {ConfirmDialogComponent} from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
-import {ConfirmDialogData} from 'src/app/core/interfaces/confirm-dialog-data.interface';
+import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
+import {ConfirmDialogData} from '@shared/interfaces/confirm-dialog-data.interface';
 
 enum NotificationPermissions {
 	GRANTED = 'granted',

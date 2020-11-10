@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {By} from '@angular/platform-browser';
 
-import {ConfirmDialogComponent} from './confirm-dialog.component';
+import {ConfirmDialogComponent} from '@shared/components/confirm-dialog/confirm-dialog.component';
 
 describe('ConfirmDialogComponent', () => {
 	let component: ConfirmDialogComponent;

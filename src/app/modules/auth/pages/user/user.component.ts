@@ -2,8 +2,8 @@ import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import {ErrorService} from 'src/app/core/services/error/error.service';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
+import {ErrorService} from '@core/services/error/error.service';
+import {AuthService} from '@core/services/auth/auth.service';
 import {PROJECT_NAME} from 'src/environments/environment';
 
 @Component({

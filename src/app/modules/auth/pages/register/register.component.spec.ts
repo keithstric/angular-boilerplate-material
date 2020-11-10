@@ -3,9 +3,9 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ErrorService} from 'src/app/core/services/error/error.service';
-import {HttpService} from 'src/app/core/services/http/http.service';
-import {LocalStorageService} from 'src/app/core/services/local-storage/local-storage.service';
+import {ErrorService} from '@core/services/error/error.service';
+import {HttpService} from '@core/services/http/http.service';
+import {LocalStorageService} from '@core/services/local-storage/local-storage.service';
 import {MockErrorService, MockHttpService, MockLocalStorageService} from 'src/app/testing/mock-services';
 
 import {RegisterComponent} from './register.component';

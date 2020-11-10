@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef} from '@angular/material/dialog';
-import {ConfirmDialogData} from '../../interfaces/confirm-dialog-data.interface';
+import {ConfirmDialogData} from '@shared/interfaces/confirm-dialog-data.interface';
 
 @Component({
 	templateUrl: './confirm-dialog.component.html',

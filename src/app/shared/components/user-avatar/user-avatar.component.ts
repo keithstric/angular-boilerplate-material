@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
+import {AuthService} from '@core/services/auth/auth.service';
 
 /**
  * A user avatar component

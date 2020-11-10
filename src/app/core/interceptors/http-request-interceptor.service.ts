@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
-import {ErrorService} from 'src/app/core/services/error/error.service';
+import {ErrorService} from '@core/services/error/error.service';
 import {LoadingService} from '../../layout/services/loading/loading.service';
 
 /**

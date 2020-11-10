@@ -1,8 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
+import {AuthService} from '@core/services/auth/auth.service';
 import {MockAuthService} from 'src/app/testing/mock-services';
 
-import {UserAvatarComponent} from './user-avatar.component';
+import {UserAvatarComponent} from '@shared/components/user-avatar/user-avatar.component';
 
 describe('UserAvatarComponent', () => {
 	let component: UserAvatarComponent;

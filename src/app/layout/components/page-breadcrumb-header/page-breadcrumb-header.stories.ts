@@ -1,8 +1,8 @@
 import {RouterTestingModule} from '@angular/router/testing';
 import {boolean, withKnobs} from '@storybook/addon-knobs';
 import {moduleMetadata} from '@storybook/angular';
-import {MaterialModule} from 'src/app/core/modules/material.module';
-import {BreadcrumbsComponent} from 'src/app/layout/components/breadcrumbs/breadcrumbs.component';
+import {MaterialModule} from '@core/modules/material.module';
+import {BreadcrumbsComponent} from '@layout/components/breadcrumbs/breadcrumbs.component';
 import {MockStorybookPageBreadcrumbHeaderComponent} from 'src/app/testing/mock-components';
 
 // @ts-ignore

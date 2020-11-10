@@ -2,8 +2,8 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FormBuilder} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
-import {UiService} from 'src/app/core/services/ui/ui.service';
+import {AuthService} from '@core/services/auth/auth.service';
+import {UiService} from '@core/services/ui/ui.service';
 import {MockAuthService, MockUiService} from 'src/app/testing/mock-services';
 
 import {ChangePasswordComponent} from './change-password.component';

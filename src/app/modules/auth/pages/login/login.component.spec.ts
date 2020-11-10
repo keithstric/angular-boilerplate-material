@@ -3,9 +3,9 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ErrorService} from 'src/app/core/services/error/error.service';
-import {AuthService} from 'src/app/core/services/auth/auth.service';
-import {UiService} from 'src/app/core/services/ui/ui.service';
+import {ErrorService} from '@core/services/error/error.service';
+import {AuthService} from '@core/services/auth/auth.service';
+import {UiService} from '@core/services/ui/ui.service';
 import {MockAuthService, MockErrorService, MockUiService} from 'src/app/testing/mock-services';
 
 import {LoginComponent} from './login.component';

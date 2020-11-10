@@ -1,35 +1,27 @@
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HttpRequestInterceptor} from 'src/app/core/interceptors/http-request-interceptor.service';
-import {ErrorService} from 'src/app/core/services/error/error.service';
-import {HttpService} from 'src/app/core/services/http/http.service';
-import {LocalStorageService} from 'src/app/core/services/local-storage/local-storage.service';
-import {UiService} from 'src/app/core/services/ui/ui.service';
-import {MockStorybookDialogContentComponent} from 'src/app/testing/mock-components';
-import {ConfirmDialogComponent} from './components/confirm-dialog/confirm-dialog.component';
-import {MaterialModule} from 'src/app/core/modules/material.module';
-import {CardComponent} from './components/card/card.component';
-import {UserAvatarComponent} from './components/user-avatar/user-avatar.component';
+import {HttpRequestInterceptor} from '@core/interceptors/http-request-interceptor.service';
+import {ErrorService} from '@core/services/error/error.service';
+import {HttpService} from '@core/services/http/http.service';
+import {LocalStorageService} from '@core/services/local-storage/local-storage.service';
+import {UiService} from '@core/services/ui/ui.service';
+
+const components = [];
 
 /**
  * Core module
  */
 @NgModule({
 	declarations: [
-		CardComponent,
-		ConfirmDialogComponent,
-		UserAvatarComponent
+		...components
 	],
 	imports: [
 		CommonModule,
-		HttpClientModule,
-		MaterialModule
+		HttpClientModule
 	],
 	exports: [
-		CardComponent,
-		MaterialModule,
-		UserAvatarComponent
+		...components
 	],
 	providers: [
 		{provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},
@@ -38,9 +30,6 @@ import {UserAvatarComponent} from './components/user-avatar/user-avatar.componen
 		HttpService,
 		LocalStorageService,
 		UiService
-	],
-	entryComponents: [
-		ConfirmDialogComponent
 	]
 })
 export class CoreModule { }

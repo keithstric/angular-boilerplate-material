@@ -1,11 +1,11 @@
 import {withKnobs, text} from '@storybook/addon-knobs';
 import {moduleMetadata} from '@storybook/angular';
-import { CardComponent } from 'src/app/core/components/card/card.component';
-import {MaterialModule} from 'src/app/core/modules/material.module';
+import { CardComponent } from '@shared/components/card/card.component';
+import {MaterialModule} from '@core/modules/material.module';
 import '@storybook/addon-console';
 
 // @ts-ignore
-import cardNotes from './README.md';
+import cardNotes from '@shared/components/card/README.md';
 
 export default {
 	title: 'app-card',
